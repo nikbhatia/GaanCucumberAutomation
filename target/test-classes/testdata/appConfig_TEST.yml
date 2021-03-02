@@ -1,0 +1,11 @@
+URLs:
+    baseURL: https://gaana.com
+
+#credentials for multiple types of users at gaana
+Users:
+  GaanaPlus:
+    Username: live30@dispostable.com
+    Password: P@ssw0rd@123
+  NonGaanaPlus:
+    Username: nik@dispostable.com
+    Password: P@ssw0rd@123

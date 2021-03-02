@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[[INFO]: URL: https://portal.gaana.com]]>
+    </line>
+    <line>
+      <![CDATA[[INFO]: https://portal.gaana.com/podcast]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2021-03-01T04:54:51Z" name="Surefire suite" finished-at="2021-03-01T04:55:06Z" duration-ms="14800">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2021-03-01T04:54:51Z" name="Surefire test" finished-at="2021-03-01T04:55:06Z" duration-ms="14800">
+      <class name="com.gaana.test.base.Test_Runner">
+        <test-method is-config="true" signature="start()[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" started-at="2021-03-01T04:54:51Z" name="start" finished-at="2021-03-01T04:54:51Z" duration-ms="18" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" started-at="2021-03-01T04:54:51Z" name="setUpClass" finished-at="2021-03-01T04:54:51Z" duration-ms="108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" started-at="2021-03-01T04:54:51Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T04:55:06Z" duration-ms="14583" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify user is able to create playlist"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Test Scenarios for creating playlist"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [rahul] but found [nikhil]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [rahul] but found [nikhil]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at com.gaana.stepdefinitions.Playlist.PlaylistStepDef.loginToGaana(PlaylistStepDef.java:23)
+at ✽.User login to the application(file:src/test/java/com/gaana/features/Playlist/CreatePlaylist.feature:7)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[[INFO]: URL: https://portal.gaana.com]]>
+            </line>
+            <line>
+              <![CDATA[[INFO]: https://portal.gaana.com/podcast]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" started-at="2021-03-01T04:55:06Z" name="tearDownClass" finished-at="2021-03-01T04:55:06Z" duration-ms="67" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.gaana.test.base.Test_Runner@4206a205]" started-at="2021-03-01T04:55:06Z" name="tearDown" finished-at="2021-03-01T04:55:06Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.gaana.test.base.Test_Runner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
