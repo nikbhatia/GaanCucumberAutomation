@@ -1,4 +1,4 @@
-package com.gaana.stepdefinitions;
+package com.gaana.stepdefinitions.Login;
 
 import org.testng.Assert;
 
@@ -6,7 +6,7 @@ import com.gaana.automation.util.GenericClassMethod;
 import com.gaana.automation.util.GenericMethod;
 import com.gaana.automation.util.TestNGLogUtility;
 import com.gaana.automation.util.URLBuilder;
-import com.gaana.pageobjects.LoginPO;
+import com.gaana.pageobjects.Login.LoginPO;
 import com.gaana.test.base.PageObjectWrapper;
 
 import cucumber.api.java.en.Given;

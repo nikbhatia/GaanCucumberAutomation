@@ -1,11 +1,11 @@
-package com.gaana.pageobjects;
+package com.gaana.pageobjects.Login;
 
 import org.openqa.selenium.By;
 
 import com.gaana.automation.util.GenericMethod;
 import com.gaana.automation.util.TestNGLogUtility;
 import com.gaana.automation.util.YamlReader;
-import com.gaana.stepdefinitions.LoginStepDef;
+import com.gaana.stepdefinitions.Login.LoginStepDef;
 import com.gaana.test.base.BaseAutomation;
 
 public class LoginPO extends BaseAutomation {

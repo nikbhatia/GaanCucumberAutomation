@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.testng.Reporter;
 
-import com.gaana.pageobjects.LoginPO;
+import com.gaana.pageobjects.Login.LoginPO;
 import com.gaana.test.base.BaseAutomation;
 
 
@@ -126,11 +126,4 @@ public class GenericClassMethod extends BaseAutomation{
 		return generic.isDisplay(loginImage);
 
 	}
-	public String getUserName() {
-		assertTrue(isUserImageDisplay(), "user image is not displayed, seems like login not done!");
-		driver.navigate().to(prop.getProperty("BaseUrl")+"/myzone");
-		return generic.getText(LoginPO.userNameText);		 
-	}
-
-
 }

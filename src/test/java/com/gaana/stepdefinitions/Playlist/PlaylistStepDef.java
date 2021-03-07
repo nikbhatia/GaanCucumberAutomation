@@ -1,7 +1,7 @@
-package com.gaana.stepdefinitions;
+package com.gaana.stepdefinitions.Playlist;
 
 import com.gaana.automation.util.URLBuilder;
-import com.gaana.pageobjects.PlaylistPO;
+import com.gaana.pageobjects.Playlist.PlaylistPO;
 import com.gaana.test.base.PageObjectWrapper;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
