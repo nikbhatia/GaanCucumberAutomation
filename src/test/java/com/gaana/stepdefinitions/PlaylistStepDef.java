@@ -1,7 +1,7 @@
-package com.gaana.stepdefinitions.Playlist;
+package com.gaana.stepdefinitions;
 
 import com.gaana.automation.util.URLBuilder;
-import com.gaana.pageobjects.Playlist.PlaylistPO;
+import com.gaana.pageobjects.PlaylistPO;
 import com.gaana.test.base.PageObjectWrapper;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -15,14 +15,5 @@ public class PlaylistStepDef {
 
 
     PlaylistPO playlistPO = (PlaylistPO) PageObjectWrapper.getObject(PlaylistPO.class);
-
-
-    @Given("User login to the application")
-    public void loginToGaana() {
-        playlistPO.navigateToUrl(URLBuilder.getURL("podcastPage"));
-        Assert.assertEquals("nikhil","rahul");
-
-    }
-
 
 }
