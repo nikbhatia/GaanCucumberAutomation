@@ -2,7 +2,7 @@ Feature: Test Scenarios of podcast page
 
   Author: nikhil.bhatia@gaana.com
 
-  @Gaana1
+  @Gaana
  Scenario Outline: Verify presence of headings on padcast page
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -15,7 +15,7 @@ Feature: Test Scenarios of podcast page
     Examples:
       |loginType   |
       |GaanaPlus   |
-#      |NonGaanaPlus|
+      |NonGaanaPlus|
 #      |Facebook    |
 
   @Gaana
@@ -32,7 +32,7 @@ Feature: Test Scenarios of podcast page
     Examples:
       |loginType   |
       |GaanaPlus   |
-#      |NonGaanaPlus|
+      |NonGaanaPlus|
 #      |Facebook    |
 
 
