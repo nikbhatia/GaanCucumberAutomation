@@ -19,7 +19,7 @@ public class URLBuilder {
     public static Map<String, String> endPoints = new HashMap<String, String>();
 
     public static void setEndPoint() {
-        endPoints.put("podcastPage", "/podcast");
+        endPoints.put("podcastPage", "/season");
 
     }
 
@@ -51,7 +51,6 @@ public class URLBuilder {
             baseURL = baseURL.replaceFirst("gaana", nameSpace);
             TestNGLogUtility.info("URL: " + baseURL);
         }
-        
         if(!moduleName.contains("home"))
         	baseURL = baseURL + getEndPoint(moduleName);
         System.out.println(baseURL);
