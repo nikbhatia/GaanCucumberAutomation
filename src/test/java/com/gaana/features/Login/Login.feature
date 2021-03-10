@@ -9,4 +9,6 @@ Feature: Test Scenarios for login functionality for different kind of users
     
     Examples:
     |loginType| 
+  	|Facebook|
   	|GaanaPlus|
+  	|NonGaanaPlus|

@@ -178,6 +178,7 @@ public class LoginPO extends BaseAutomation {
 	public void login_UserGaana(String string) throws InterruptedException {
 		switch (string) {
 		case "Facebook":
+			Thread.sleep(3000);
 			clickOnFbLogin();
 			parentWinHandle = generic.getParentWindowHandle();
 			generic.switchToNewWindow();
@@ -188,6 +189,7 @@ public class LoginPO extends BaseAutomation {
 			break;
 
 		case "Google":
+			Thread.sleep(3000);
 			clickOnGoogleLogin();
 			parentWinHandle = generic.getParentWindowHandle();
 			generic.switchToNewWindow();
@@ -200,6 +202,7 @@ public class LoginPO extends BaseAutomation {
 
 		case "GaanaPlus":
 		case "NonGaanaPlus":
+			Thread.sleep(3000);
 			enterEmailId(Email);
 			clickOnEmailContinue();
 			enterEmailPassword(Password);

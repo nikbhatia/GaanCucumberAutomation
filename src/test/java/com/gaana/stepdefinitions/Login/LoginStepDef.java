@@ -22,7 +22,6 @@ public class LoginStepDef {
 	@Given("user opens the application {string}")
 	public void user_opens_the_application(String string) {
 		 loginPO.navigateToUrl(URLBuilder.getURL(string));
-		
 	}
 
 	@Then("user logins with {string}")
