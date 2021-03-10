@@ -1,6 +1,6 @@
 Feature: Test Scenarios for login functionality for different kind of users 
 
-@Gaana1
+@Gaana
  Scenario Outline: Verify user is able to login into app with different userTypes
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -8,5 +8,8 @@ Feature: Test Scenarios for login functionality for different kind of users
     Then user logouts the app
     
     Examples:
-    |loginType| 
-  	|GaanaPlus|
+   |loginType   | 
+   |GaanaPlus   |
+   |Facebook    |
+   |Google      |
+   |NonGaanaPlus|
