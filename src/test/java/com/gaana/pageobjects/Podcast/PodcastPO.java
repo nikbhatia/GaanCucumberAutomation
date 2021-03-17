@@ -18,7 +18,7 @@ public class PodcastPO  extends BaseAutomation {
     private By elePodcast = By.xpath("//h2[contains(text(),'${heading}')]");
     private By eleSectionHeading = By.xpath("//section[@class='caro caro_sqr mWrap']//strong");
     private By eleGaanaTagline = By.xpath("//strong[contains(text(),'${heading}')]");
-    private By eleFirstPodcast = By.xpath("(//a[contains(@class,"img default_bg")])[1]");
+    private By eleFirstPodcast = By.xpath("(//a[contains(@class,"\img default_bg\")])[1]");
     private By btnPlayPodcast = By.xpath("//button[contains(text(),'Play')]");
     private By elePodcastPlayTime = By.xpath("//span[@class=\"_a\"]");
     private By btnPausePlayer = By.xpath("//button[@class='play']/*[@viewBox='0 0 24 24']");
