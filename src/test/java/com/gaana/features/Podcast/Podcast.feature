@@ -16,7 +16,7 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |GaanaPlus   |
       |NonGaanaPlus|
-#      |Facebook    |
+      |Facebook    |
 
   @Gaana
  Scenario Outline: Verify podcast played from podcast page
@@ -33,6 +33,6 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |GaanaPlus   |
       |NonGaanaPlus|
-#      |Facebook    |
+      |Facebook    |
 
 
