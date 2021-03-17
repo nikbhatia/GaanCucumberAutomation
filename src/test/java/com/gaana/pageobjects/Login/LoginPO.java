@@ -15,12 +15,12 @@ public class LoginPO extends BaseAutomation {
 	private By signInBtn = By.xpath("//button[contains(text(),'Log In / Sign Up')]");
 	private By loginPopup = By.xpath("//strong[@class='title' and text()='Login/Signup']");
 
-	private By fbLink = By.xpath("//button[contains(text(),'Login with Facebook')]");
+	private By fbLink = By.xpath("//button[contains(text(),'Facebook')]");
 	private By fbEmailTxtbox = By.xpath("(//input[@id='email'])[1]");
 	private By fbPassTxtbox = By.id("pass");
 	private By fbLoginBtn = By.xpath("//input[@name='login']");
 
-	private By googleLink = By.xpath("//button[contains(text(),'Login with Google')]");
+	private By googleLink = By.xpath("//button[contains(text(),'Google')]");
 	private By gmailTxtbox = By.xpath("//input[@type='email']");
 	private By nextBtn = By.xpath("//span[contains(text(),'Next')]");
 	private By gmailPasswordTxtbox = By.xpath("//input[@type='password']");
