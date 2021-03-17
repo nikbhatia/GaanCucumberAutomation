@@ -33,7 +33,7 @@ public class YamlReader {
     public static String getAppConfigValue(String key) {
         String value = null;
         try {
-            value = getValue(key, appConfigPath);
+        	value = getValue(key, appConfigPath);
         } catch (FileNotFoundException ex) {
             TestNGLogUtility.info(ex.getMessage());
             return null;

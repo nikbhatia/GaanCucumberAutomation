@@ -51,8 +51,11 @@ public class URLBuilder {
             baseURL = baseURL.replaceFirst("gaana", nameSpace);
             TestNGLogUtility.info("URL: " + baseURL);
         }
-        baseURL = baseURL + getEndPoint(moduleName);
+        
+        if(!moduleName.contains("home"))
+        	baseURL = baseURL + getEndPoint(moduleName);
         System.out.println(baseURL);
+        
         return baseURL;
     }
 }
