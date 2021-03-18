@@ -20,18 +20,17 @@ public class LoginStepDef {
 	public static String loginType;
 
 	@Given("user opens the application {string}")
-	public void user_opens_the_application(String string) {
+	public void user_opens_the_application(String string) throws InterruptedException {
 		 loginPO.navigateToUrl(URLBuilder.getURL(string));
+		 Thread.sleep(10000);
 	}
 
 	@Then("user logins with {string}")
 	public void user_logins_with(String string) throws InterruptedException {
-
+		Thread.sleep(1000);
 		loginType = string;
 		loginPO.loginCredentials(loginType);
-		Thread.sleep(10000);
 		loginPO.clickOnSignIn();
-
 		loginPO.login_UserGaana(loginType);
 	}
 
