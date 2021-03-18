@@ -16,13 +16,4 @@ public class PlaylistStepDef {
 
     PlaylistPO playlistPO = (PlaylistPO) PageObjectWrapper.getObject(PlaylistPO.class);
 
-
-    @Given("User login to the application")
-    public void loginToGaana() {
-        playlistPO.navigateToUrl(URLBuilder.getURL("podcastPage"));
-        Assert.assertEquals("nikhil","rahul");
-
-    }
-
-
 }

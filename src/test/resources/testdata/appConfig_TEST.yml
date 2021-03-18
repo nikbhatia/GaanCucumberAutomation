@@ -4,8 +4,19 @@ URLs:
 #credentials for multiple types of users at gaana
 Users:
   GaanaPlus:
-    Username: live30@dispostable.com
-    Password: P@ssw0rd@123
+    Email: live20@dispostable.com
+    Password: gaana@123
+    UserName: Test
   NonGaanaPlus:
-    Username: nik@dispostable.com
-    Password: P@ssw0rd@123
+    Email: livegaana@dispostable.com
+    Password: india@123
+    UserName: Rohit
+  Facebook:
+    Email: test.gaana10@gmail.com
+    Password: gaana@12345
+    UserName: Rock Aryan
+  Google:
+     Email: webqa.gaana@gmail.com
+     Password: admin@12345
+     UserName: Rohit Kumar
+
