@@ -25,7 +25,8 @@ public class GenericClassMethod extends BaseAutomation{
 	private static By playerPauseIcon = By.xpath("//*[@id='mp']/div[3]/div/div[3]/div/a[2]//*[@class='pausesvg']");
 	//	private static By playerPIcon = By.xpath("//*[@id='mp']/div[3]/div/div[3]/div/a[2]//*[@class='pausesvg']");
 	private By loginImage = By.xpath("//a[@class='login-img']");
-
+	private static By home_headingLink = By.xpath("//div[contains(@class,'home_pg')]//section[contains(@class,'lg_filter bbStyle')]//small[contains(text(),'${heading}')]");
+	private static By logoGaana = By.xpath("//header[contains(@class,'gheader')]//a[contains(@class,'logo')]");
 
 	public static void clickOnPlayAll() throws InterruptedException {
 		Thread.sleep(1500);
@@ -125,5 +126,13 @@ public class GenericClassMethod extends BaseAutomation{
 	public boolean isUserImageDisplay() {
 		return generic.isDisplay(loginImage);
 
+	}
+	
+	public void clickOnHomeHeadingTitle(String heading) {
+		generic.click(parameterizedLocator(home_headingLink,heading));
+	}
+	
+	public void clickOnGaanaLogo() {
+		generic.click(logoGaana);
 	}
 }

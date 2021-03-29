@@ -1,10 +1,229 @@
 package com.gaana.pageobjects.Playlist;
 
-import com.gaana.automation.util.TestNGLogUtility;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+
+import com.gaana.automation.util.GenericMethod;
 import com.gaana.test.base.BaseAutomation;
 
 public class PlaylistPO extends BaseAutomation {
 
+	GenericMethod generic = new GenericMethod();
+	public static String playListName,firstTrendingSong = null;
+
+	private By createPlaylistBtn = By.xpath("//button[contains(text(),'${heading}')]");
+	private By createPlayListPopup = By.xpath("//h2[contains(text(),'Create New Playlist')]");
+	private By createPlayListBtnDisabled = By.xpath("//button[contains(text(),'Create Playlist') and @disabled]");
+	private By createPlaylistTextbox = By.xpath("//input[contains(@name,'playlistname')]");
+	private By createPlaylistModalFormBtn = By
+			.xpath("//section[contains(@class,'model _open')]//button[contains(text(),'Create Playlist')]");
+	private By createdPlaylist = By.xpath("//div[@class='t_wrap']//a");
+	private By createdPlaylistHeading = By.xpath("//section[contains(@class,'info')]//strong");
+	private By createdPlaylistTrackCount = By.xpath("//section[contains(@class,'info')]//span[2]");
+	private By threeDot = By.xpath("//button[contains(@class,'icon menu_ic')]");
+	private By editPlaylistLink = By.xpath("//span[contains(text(),'Edit Playlist')]");
+	private By editPlaylistTextbox = By.xpath("//section[contains(@class,'info')]//input");
+	private By saveBtn = By.xpath("//button[contains(text(),'Save')]");
+	private By deletePlaylistLink = By.xpath("//span[contains(text(),'Delete Playlist')]");
+	private By deletePlaylistButton = By.xpath("//button[contains(text(),'Delete Playlist')]");
+	private By firstTrendingSongHome = By.xpath("//strong[text()='Trending Songs']//ancestor::section//div[contains(@class,'t_wrap')]//a");
+	private By addToPlaylistLink = By.xpath("//span[contains(text(),'Add to Playlist')]");
+	private By addToExistingPlaylist = By.xpath("//div[contains(@class,'_inner cent-pp addtoPl_pp')]//strong");
+	private By firstTrendingSongHeading = By.xpath("//section[contains(@class,'info')]//strong");
+	private By addedSongPlaylistPage = By.xpath("//div[contains(@class,'_tra t_over')]//span[contains(@class,'t_over')]");
+	private By selectAllButton = By.xpath("//div[contains(@class,'selectAll')]//button//label");
+	private By deleteSelectedButtonDisabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
+	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected')]");
 	
 	
+	
+	private By playlistValidateMsg = By.xpath("//span[@class='playlist_name validateTips']");
+	private By playlistCreateSuccessMsg = By.xpath("//div[@class='event-notification']/div");
+	private By createdFirstPlaylistName = By.xpath("(//div[@class='arwtork_label']/a)[1]");
+	public By firstPlaylist = By.xpath("//div[@class='carousel padtp30 mymsc']//div[@class='hover-events-parent']");
+	private By emptyPlaylistMsg = By.xpath("//ul[@class='content-container clearfix a-list artworkload']/div");
+	private By editPlaylistValidationMsg = By.xpath("//span[@class='playlist_title validateTips']");
+	private By playListNameHeader = By.xpath("//div[@class='_t1']/h1");
+	public By playlistIcon = By.xpath("//div[@class='card_layout_data']");
+
+	public void clickOnCreatePlaylist(String string) {
+		generic.click(parameterizedLocator(createPlaylistBtn, string));
+	}
+
+	public boolean validatePresenceCreatePlaylistPopup() {
+		boolean flag = false;
+		wait.hardWait(2);
+		flag = isDisplayed(createPlayListPopup) && isDisplayed(createPlayListBtnDisabled);
+		return flag;
+	}
+
+	public void enterPlaylistName(String name) {
+		playListName = name + generic.getTimeStamp();
+		generic.EnterText(createPlaylistTextbox, playListName);
+	}
+
+	public void clickOnCPBtn() throws InterruptedException {
+		try {
+			generic.click(createPlaylistModalFormBtn);
+		} catch (Exception e) {
+			wait.hardWait(2);
+			generic.click(createPlaylistModalFormBtn);
+		}
+	}
+
+	public boolean validatePlaylistCreated() {
+		wait.hardWait(2);
+		if (getText(createdPlaylist).equalsIgnoreCase(playListName))
+			return true;
+		return false;
+	}
+
+	public void clickOnCreatedPlaylist() throws InterruptedException {
+		try {
+			generic.click(createdPlaylist);
+		} catch (Exception e) {
+			Thread.sleep(1000);
+			generic.click(createdPlaylist);
+		}
+	}
+
+	public boolean validatePlaylistCreatedHeading() {
+		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
+			return true;
+		return false;
+	}
+
+	public boolean validatePlaylistCreatedTrackCount(String count) {
+		if (getText(createdPlaylistTrackCount).contains(count))
+			return true;
+		return false;
+	}
+
+	public void clickOnThreeDot() {
+		generic.click(threeDot);
+	}
+
+	public void clickOnEditPlaylist() {
+		generic.click(editPlaylistLink);
+	}
+
+	public void clearPlaylistTextbox() {
+		driver.findElement(editPlaylistTextbox).clear();
+	}
+
+	public void enterEditPlaylistName(String name) {
+		playListName = name + generic.getTimeStamp();
+		generic.EnterText(editPlaylistTextbox, playListName);
+	}
+
+	public void clickOnSaveButton() {
+		wait.hardWait(2);
+		generic.click(saveBtn);
+	}
+
+	public void clickOnDeletePlaylist() {
+		try {
+			generic.click(deletePlaylistLink);
+		} catch (Exception e) {
+			clickOnThreeDot();
+			generic.click(deletePlaylistLink);
+		}
+	}
+
+	public void clickOnDeletePlaylistButton() {
+		generic.click(deletePlaylistButton);
+	}
+	
+	public void clickFirstTrendingSongHome() {
+		generic.click(firstTrendingSongHome);
+		firstTrendingSong = getText(firstTrendingSongHeading);
+	}
+	
+	public void clickOnAddToPlaylist() {
+		generic.click(addToPlaylistLink);
+	}
+	
+	public boolean addSongToExistingPlaylist() {
+		if (getText(addToExistingPlaylist).equalsIgnoreCase(playListName)) {
+			generic.click(addToExistingPlaylist);
+			return true;
+		}	
+		return false;
+	}
+	
+	
+	public boolean validateTrendingSongAddedToPlaylist() {
+		if (getText(addedSongPlaylistPage).contains(firstTrendingSong))
+			return true;
+		return false;
+	}
+	
+	public boolean validatePresenceDeleteSelectedDisabled() {
+		boolean flag = false;
+		flag = isDisplayed(deleteSelectedButtonDisabled);
+		return flag;
+	}
+	
+	public void clickOnSelectAll() {
+		generic.click(selectAllButton);
+	}
+
+	public void clickOnDeleteSelected() {
+		if(isDisplayed(deleteSelectedButtonEnabled))
+			generic.click(deleteSelectedButtonEnabled);
+		else
+			Assert.fail("Delete Selected button is not enabled/clickable");
+	}
+	
+	
+
+	public boolean isPlaylistValidateMsgDisplay() {
+		if (generic.isDisplay(playlistValidateMsg)) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isEmptyPlaylistMsgDisplay() {
+		try {
+			generic.isDisplay(emptyPlaylistMsg);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public String getCreatePlaylistValidateMsg() {
+		return generic.getText(playlistValidateMsg);
+	}
+
+	public String getSuccessMsg() {
+		return generic.getText(playlistCreateSuccessMsg);
+	}
+
+	public String getFirstPlaylistName() {
+		return generic.getText(createdFirstPlaylistName);
+	}
+
+	public void clickOnfirstPlaylist() throws InterruptedException {
+		Thread.sleep(2000);
+		generic.click(firstPlaylist);
+	}
+
+	public String getValidationMsg() {
+		return generic.getText(editPlaylistValidationMsg);
+	}
+
+	public String getEditedPlaylistName() {
+		return generic.getText(playListNameHeader);
+	}
+
+	public String getDatvaluePlaylist() {
+		return driver.findElement(createdFirstPlaylistName).getAttribute("data-value");
+	}
+
+	public String getEmptyPlaylistMsg() {
+		return generic.getText(emptyPlaylistMsg);
+	}
+
 }
