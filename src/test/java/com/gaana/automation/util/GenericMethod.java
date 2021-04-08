@@ -1,5 +1,7 @@
 package com.gaana.automation.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +22,11 @@ import com.gaana.test.base.BaseAutomation;
 import com.google.common.base.Function;
 
 public class GenericMethod extends BaseAutomation {
+	
+	public String getTimeStamp() {
+		String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		return timeStamp;
+	}
 	
 	public void click(By elementLocator) {
 		WaitFor_visibility(elementLocator);
