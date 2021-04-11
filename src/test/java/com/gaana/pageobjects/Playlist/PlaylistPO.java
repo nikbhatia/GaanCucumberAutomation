@@ -11,7 +11,7 @@ public class PlaylistPO extends BaseAutomation {
 	GenericMethod generic = new GenericMethod();
 	public static String playListName,firstTrendingSong = null;
 
-	private By createPlaylistBtn = By.xpath("//button[contains(text(),'${heading}')]");
+	private By button_xpath = By.xpath("//button[contains(text(),'${heading}')]");
 	private By createPlayListPopup = By.xpath("//h2[contains(text(),'Create New Playlist')]");
 	private By createPlayListBtnDisabled = By.xpath("//button[contains(text(),'Create Playlist') and @disabled]");
 	private By createPlaylistTextbox = By.xpath("//input[contains(@name,'playlistname')]");
@@ -46,8 +46,8 @@ public class PlaylistPO extends BaseAutomation {
 	private By playListNameHeader = By.xpath("//div[@class='_t1']/h1");
 	public By playlistIcon = By.xpath("//div[@class='card_layout_data']");
 
-	public void clickOnCreatePlaylist(String string) {
-		generic.click(parameterizedLocator(createPlaylistBtn, string));
+	public void clickOnButton(String string) {
+		generic.click(parameterizedLocator(button_xpath, string));
 	}
 
 	public boolean validatePresenceCreatePlaylistPopup() {

@@ -26,13 +26,13 @@ public class PlaylistStepDef extends BaseAutomation{
     
     @Then("user clicks on {string} button")
     public void user_clicks_on_CreatePlaylist_button(String string) {
-    	playlistPO.clickOnCreatePlaylist(string);
-    	assertTrue(playlistPO.validatePresenceCreatePlaylistPopup(), "Create Playlist popup is not displayed.");
+    	playlistPO.clickOnButton(string);
     }
     
     @And("user creates {string}")
     public void user_createsPlaylist(String string) throws InterruptedException {
-    	playlistPO.enterPlaylistName(string);
+    	assertTrue(playlistPO.validatePresenceCreatePlaylistPopup(), "Create Playlist popup is not displayed.");
+        playlistPO.enterPlaylistName(string);
     	playlistPO.clickOnCPBtn();
     }
     

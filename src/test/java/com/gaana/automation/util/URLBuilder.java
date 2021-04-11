@@ -20,7 +20,9 @@ public class URLBuilder {
 
     public static void setEndPoint() {
         endPoints.put("podcastPage", "/season");
-
+        endPoints.put("subscriptionPage", "/subscribe/buy-gaana-plus");
+        endPoints.put("artistPage", "/artist");
+        endPoints.put("albumPage", "/album");
     }
 
 
