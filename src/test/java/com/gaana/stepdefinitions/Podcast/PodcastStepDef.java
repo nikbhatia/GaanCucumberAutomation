@@ -7,6 +7,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.testng.Assert;
 
+import java.text.ParseException;
+
 public class PodcastStepDef {
 
 
@@ -36,7 +38,7 @@ public class PodcastStepDef {
 
 
     @Then("user clicked on first podcast")
-    public void clickOnFirstPodcast(){
+    public void clickOnFirstPodcast() throws ParseException {
         podcastPO.clickOnFirstPodcast();
         TestNGLogUtility.info("User clicked on first podcast");
     }
@@ -58,6 +60,23 @@ public class PodcastStepDef {
         Assert.assertTrue(podcastPO.verifyPodcastPlayed(),"Podcast is not being played");
         TestNGLogUtility.pass("Podcast is being played");
     }
+
+    @And("user verifies {string} with value {string} {string} {string}")
+    public void validatePresenceOfElements(String label, String value1,String value2,String value3) {
+        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value1), "label" + label);
+        TestNGLogUtility.pass("label :" + label + "value :" + value1);
+        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value2), "label" + label);
+        TestNGLogUtility.pass("label :" + label + "value :" + value2);
+        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value1), "label" + label);
+        TestNGLogUtility.pass("label :" + label + "value :" + value3);
+    }
+
+    @And("user verifies sorting is working correctly")
+    public void verifySorting() throws ParseException {
+        Assert.assertTrue(podcastPO.verifySorting(),"sorting is not working correctly");
+        TestNGLogUtility.pass("Sorting is working correctly");
+    }
+
 
 
 
