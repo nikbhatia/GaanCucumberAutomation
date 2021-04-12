@@ -35,4 +35,19 @@ Feature: Test Scenarios of podcast page
       |NonGaanaPlus|
       |Facebook    |
 
+  @Gaana
+  Scenario Outline: Verify sorting on podcast page
+    Given user opens the application "homePage"
+    Then  user logins with "<loginType>"
+    When  user opens the application "podcastPage"
+    Then  user clicked on first podcast
+    And   user verifies "Episode Headings" with value "Episode" "Uploaded On" "Duration"
+    And   user verifies sorting is working correctly
+
+    Examples:
+      |loginType   |
+      |GaanaPlus   |
+      |NonGaanaPlus|
+      |Facebook    |
+
 
