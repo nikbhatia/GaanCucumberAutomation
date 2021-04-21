@@ -1,6 +1,6 @@
 #Author: pravish.mittal
 
-Feature: Test Scenarios for Payment functionality
+Feature: Test Scenarios for the Payment functionality
 
 @Gaana
 Scenario Outline: Verify user is able to perform payment by various different modes
