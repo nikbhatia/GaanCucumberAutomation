@@ -77,6 +77,11 @@ public class PodcastStepDef {
         TestNGLogUtility.pass("Sorting is working correctly");
     }
 
+    @Then("user mark podcast as favourite")
+    public void verifyFavouritePodcastPage(){
+        Assert.assertTrue(podcastPO.markPodcastFavourite());
+    }
+
 
 
 

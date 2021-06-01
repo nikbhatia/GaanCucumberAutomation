@@ -50,4 +50,23 @@ Feature: Test Scenarios of podcast page
       |NonGaanaPlus|
       |Facebook    |
 
+  @Gaana
+  Scenario Outline: Verify markfav functionality on podcast page
+    Given user opens the application "homePage"
+    Then  user logins with "<loginType>"
+    When  user opens the application "podcastPage"
+    Then  user clicked on first podcast
+    Then  user mark podcast as favourite
+    When  user opens the application "myMusicPage"
+    Then  user mark podcast season and episode as favourite
+    And   user verifies podcast season and episode added under favourite section
+
+
+
+    Examples:
+      |loginType   |
+      |GaanaPlus   |
+      |NonGaanaPlus|
+      |Facebook    |
+
 

@@ -39,8 +39,11 @@ public class PodcastPO extends BaseAutomation {
     private By eleSortOldestFirst = By.xpath("//li[contains(text(),'Oldest First')]");
     private By eleDateFirstEpisode = By.xpath("(//div[@class=\"col col_3 sm-hide\"])[1]");
     private By eleNewestFirst = By.xpath("//li[contains(text(),'Newest First')]");
+    private By eleFavPodcastMyMusic = By.xpath("//strong[contains(text(),'Favourite Podcasts')]");
+    private By eleSeeAllFavPodcast = By.xpath("//a[contains(@href,'/myfavoritepodcasts')]/span");
+    private By eleEntityMarkedFav = By.xpath("//a[@class=\"al t_over\" and contains(text() ,\"Ep 1 - Himachal\")]");
 
-
+    String markedfavPodcast ="";
 
 
 
@@ -225,8 +228,24 @@ public class PodcastPO extends BaseAutomation {
         wait.waitForElementToBeClickable(btnMarkFavPodcast);
         click(btnMarkFavPodcast);
         wait.waitForVisibilityOfElement(btnUnmarkPodcastFav);
+        markedfavPodcast=getText(elePodcastName);
         return isDisplayed(btnUnmarkPodcastFav);
+    }
 
+    /**
+     * This method use to verify favourite podcast displayed on my music page
+     *
+     * @author nikhil.bhatia
+     */
+    public boolean verifyMarkedFavPodcast(){
+        jsUtil.scrollToElement(eleFavPodcastMyMusic);
+        click(eleSeeAllFavPodcast);
+return true; // will update
+    }
+
+
+    public boolean verifymarkedFavExist(String name){
+return true; //will update
     }
 
 

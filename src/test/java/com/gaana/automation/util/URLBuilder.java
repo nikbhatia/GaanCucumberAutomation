@@ -20,6 +20,7 @@ public class URLBuilder {
 
     public static void setEndPoint() {
         endPoints.put("podcastPage", "/season");
+        endPoints.put("myMusicPage","/music");
 
     }
 
