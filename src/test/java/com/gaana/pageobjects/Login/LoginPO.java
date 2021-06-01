@@ -25,8 +25,8 @@ public class LoginPO extends BaseAutomation {
 	private By nextBtn = By.xpath("//span[contains(text(),'Next')]");
 	private By gmailPasswordTxtbox = By.xpath("//input[@type='password']");
 
-	private By txtEmail = By.xpath("//div[@class='login-input ']//input[@type='text']");
-	private By emailPassTxtbox = By.xpath("//input[@type='password']");
+	private By txtEmail = By.xpath("//div[contains(@class,'login-input')]//input[@type='text']");
+	private By emailPassTxtbox = By.xpath("//input[contains(@type,'password')]");
 	private By emailContinueBtn = By.xpath("//button[@type='submit']");
 
 	private By loginImg = By.xpath("//button[contains(@class,'user_ic')]");
