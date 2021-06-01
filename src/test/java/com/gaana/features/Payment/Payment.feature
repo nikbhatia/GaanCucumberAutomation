@@ -5,7 +5,7 @@ Feature: Test Scenarios for the Payment functionality
 @Gaana
 Scenario Outline: Verify user is able to perform payment by various different modes
 
-		Given user opens the application "homePage"
+    Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user clicks on Get Gaana Plus link
     Then user verifies that "subscriptionPage" is displayed

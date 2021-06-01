@@ -11,7 +11,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@CucumberOptions(features = { "src/test/java/com/gaana/features/Login" }, tags = "@Gaana", glue = {
+@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana", glue = {
 		"com.gaana.stepdefinitions","com.gaana.test.base" }, plugin = { "pretty",
 				"html:target/cucumber-reports/cucumber.html", "json:target/cucumber-reports/Cucumber.json" }, monochrome = true)
 

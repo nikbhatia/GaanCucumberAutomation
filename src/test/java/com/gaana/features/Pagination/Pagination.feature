@@ -5,7 +5,7 @@ Feature: Test Scenarios for Pagination functionality
 @Gaana
 Scenario Outline: Verify user is able to scroll down to access the entire page
 
-		Given user opens the application "homePage"
+    Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user verifies pagination of the "Home Page"
     Then user clicks on "Top Charts" link from home page
