@@ -18,19 +18,19 @@ public class PlaylistPO extends BaseAutomation {
 	private By createPlaylistModalFormBtn = By
 			.xpath("//section[contains(@class,'model _open')]//button[contains(text(),'Create Playlist')]");
 	private By createdPlaylist = By.xpath("//div[@class='t_wrap']//a");
-	private By createdPlaylistHeading = By.xpath("//section[contains(@class,'info')]//strong");
+	private By createdPlaylistHeading = By.xpath("//section[contains(@class,'info')]//h1");
 	private By createdPlaylistTrackCount = By.xpath("//section[contains(@class,'info')]//span[2]");
-	private By threeDot = By.xpath("//button[contains(@class,'icon menu_ic')]");
+	private By threeDot = By.xpath("//div[contains(@class,'info')]//button[contains(@title,'More Options')]");
 	private By editPlaylistLink = By.xpath("//span[contains(text(),'Edit Playlist')]");
 	private By editPlaylistTextbox = By.xpath("//section[contains(@class,'info')]//input");
-	private By saveBtn = By.xpath("//button[contains(text(),'Save')]");
+	private By saveBtn = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Save')]");
 	private By deletePlaylistLink = By.xpath("//span[contains(text(),'Delete Playlist')]");
 	private By deletePlaylistButton = By.xpath("//button[contains(text(),'Delete Playlist')]");
-	private By firstTrendingSongHome = By.xpath("//strong[text()='Trending Songs']//ancestor::section//div[contains(@class,'t_wrap')]//a");
+	private By firstTrendingSongHome = By.xpath("//a[contains(@title,'Trending Songs')]//ancestor::section//div[contains(@class,'t_wrap')]//a");
 	private By addToPlaylistLink = By.xpath("//span[contains(text(),'Add to Playlist')]");
 	private By addToExistingPlaylist = By.xpath("//div[contains(@class,'_inner cent-pp addtoPl_pp')]//strong");
-	private By firstTrendingSongHeading = By.xpath("//section[contains(@class,'info')]//strong");
-	private By addedSongPlaylistPage = By.xpath("//div[contains(@class,'_tra t_over')]//span[contains(@class,'t_over')]");
+	private By firstTrendingSongHeading = By.xpath("//section[contains(@class,'info')]//h1");
+	private By addedSongPlaylistPage = By.xpath("//a[contains(@class,'_tra t_over')]//span[contains(@class,'t_over')]");
 	private By selectAllButton = By.xpath("//div[contains(@class,'selectAll')]//button//label");
 	private By deleteSelectedButtonDisabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
 	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected')]");
@@ -81,6 +81,7 @@ public class PlaylistPO extends BaseAutomation {
 	public void clickOnCreatedPlaylist() throws InterruptedException {
 		try {
 			generic.click(createdPlaylist);
+			Thread.sleep(2000);
 		} catch (Exception e) {
 			Thread.sleep(1000);
 			generic.click(createdPlaylist);
@@ -100,6 +101,7 @@ public class PlaylistPO extends BaseAutomation {
 			return true;
 		return false;
 	}
+
 
 	public void clickOnThreeDot() {
 		wait.waitForVisibilityOfElement(threeDot);
@@ -156,7 +158,7 @@ public class PlaylistPO extends BaseAutomation {
 	
 	
 	public boolean validateTrendingSongAddedToPlaylist() {
-		if (getText(addedSongPlaylistPage).contains(firstTrendingSong))
+		if (firstTrendingSong.contains(getText(addedSongPlaylistPage)))
 			return true;
 		return false;
 	}
