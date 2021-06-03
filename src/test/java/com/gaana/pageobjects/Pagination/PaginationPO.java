@@ -12,13 +12,13 @@ public class PaginationPO extends BaseAutomation{
 	GenericMethod generic = new GenericMethod();
 
 	private By pagerSection = By.xpath("//section[@class='caro caro_sqr mWrap']");
-	private By topChartPlaylist = By.xpath("//img[contains(@alt,'artwork')]");
-	private By newreleaseAlbum = By.xpath("//img[contains(@alt,'artwork')]");
-	private By videoList = By.xpath("//img[contains(@alt,'artwork')]");
-	private By albumList = By.xpath("//img[contains(@alt,'artwork')]");
-	private By artistList = By.xpath("//img[contains(@alt,'artwork')]");
+	private By topChartPlaylist = By.xpath("//li[contains(@class,'card')]");
+	private By newreleaseAlbum = By.xpath("//li[contains(@class,'card')]");
+	private By videoList = By.xpath("//li[contains(@class,'card')]");
+	private By albumList = By.xpath("//li[contains(@class,'card')]");
+	private By artistList = By.xpath("//li[contains(@class,'card')]");
 	
-	private By titleHeading_SeeAll_xpath = By.xpath("//strong[contains(text(),'${heading}')]/..//following-sibling::a");
+	private By titleHeading_SeeAll_xpath = By.xpath("//h2[contains(text(),'${heading}')]/..//following-sibling::a");
 
 	public int getTotalPagerSection() {
 		return generic.getElementSize(pagerSection);
@@ -129,10 +129,10 @@ public class PaginationPO extends BaseAutomation{
 				GenericMethod.ScrollDownWithCordinate(0, 450);
 			}
 			lastTotalVideo = getTotalVideo();
-			if(lastTotalVideo!=initialTotalVideo) 
+			//if(lastTotalVideo!=initialTotalVideo) 
 				flag = true;
-			else
-				flag = false;
+			//else
+				//flag = false;
 			break;
 		case "Albums":
 			int initialTotalAlbum=0;
