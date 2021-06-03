@@ -6,7 +6,7 @@ Feature: Test Scenarios for creating playlist
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user clicks on "My Music" link
-    Then user clicks on "create playlist" button
+    Then user clicks on "Create Playlist" button
     And user creates "Test Playlist"
     Then user verifies the created playlist
     Then user edits the playlist name "Test Playlist_Upd"
