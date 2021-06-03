@@ -7,7 +7,7 @@ Feature: Test Scenarios of podcast page
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     When user opens the application "podcastPage"
-    And  user verifies "Breadcrumb Title" with value "Home" "Shows & Podcasts"
+    And  user verifies "Breadcrumb Title" with value "Gaana" "Podcast"
     And  user verifies "Page Heading" with value "Podcast"
     Then user verifies Sections and its headings
     And  user verifies "Gaana Tagline" with value "Bas Bajna Chahiye Gaana"
@@ -23,7 +23,7 @@ Feature: Test Scenarios of podcast page
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     When user opens the application "podcastPage"
-    And   user verifies "Breadcrumb Title" with value "Home" "Shows & Podcasts"
+    And  user verifies "Breadcrumb Title" with value "Gaana" "Podcast"
     Then  user clicked on first podcast
     And   user verifies podcast heading and breadcrumb for podcast
     Then  user played the podcast

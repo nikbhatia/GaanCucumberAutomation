@@ -88,6 +88,8 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public boolean validatePlaylistCreatedHeading() {
+		System.out.println("a"+getText(createdPlaylistHeading));
+		System.out.println("b"+playListName);
 		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
 			return true;
 		return false;
@@ -100,7 +102,8 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public void clickOnThreeDot() {
-		generic.click(threeDot);
+		wait.waitForVisibilityOfElement(threeDot);
+		click(threeDot);
 	}
 
 	public void clickOnEditPlaylist() {

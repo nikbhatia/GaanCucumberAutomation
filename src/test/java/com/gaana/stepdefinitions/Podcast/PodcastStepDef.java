@@ -67,7 +67,7 @@ public class PodcastStepDef {
         TestNGLogUtility.pass("label :" + label + "value :" + value1);
         Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value2), "label" + label);
         TestNGLogUtility.pass("label :" + label + "value :" + value2);
-        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value1), "label" + label);
+        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(value3, value1), "label" + label);
         TestNGLogUtility.pass("label :" + label + "value :" + value3);
     }
 
