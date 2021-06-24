@@ -1,5 +1,8 @@
 #Author: pravish.mittal
 
+Feature: Test Scenarios for validating Login functionality
+
+
 @Gaana @Regression
  Scenario Outline: Verify user is able to login with GaanaPlus credentials
 
