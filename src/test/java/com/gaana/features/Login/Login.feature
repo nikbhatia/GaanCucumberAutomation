@@ -1,9 +1,8 @@
 #Author: pravish.mittal
 
-Feature: Test Scenarios for validating login functionality for different kind of users 
-
 @Gaana @Regression
  Scenario Outline: Verify user is able to login with GaanaPlus credentials
+
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     And verifies the user login profile

@@ -5,7 +5,7 @@ Feature: Test Scenarios for validating Pagination functionality
 @Gaana @Regression
 Scenario Outline: Verify pagination for the Home page
 
-		Given user opens the application "homePage"
+    Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user verifies pagination of the "Home Page"
     

@@ -67,7 +67,7 @@ public class PodcastStepDef {
         TestNGLogUtility.pass("label :" + label + "value :" + value1);
         Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value2), "label" + label);
         TestNGLogUtility.pass("label :" + label + "value :" + value2);
-        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(label, value1), "label" + label);
+        Assert.assertTrue(podcastPO.validatePresenceOfElementsOnPodcastPage(value3, value1), "label" + label);
         TestNGLogUtility.pass("label :" + label + "value :" + value3);
     }
 
@@ -75,6 +75,11 @@ public class PodcastStepDef {
     public void verifySorting() throws ParseException {
         Assert.assertTrue(podcastPO.verifySorting(),"sorting is not working correctly");
         TestNGLogUtility.pass("Sorting is working correctly");
+    }
+
+    @Then("user mark podcast as favourite")
+    public void verifyFavouritePodcastPage(){
+        Assert.assertTrue(podcastPO.markPodcastFavourite());
     }
 
 

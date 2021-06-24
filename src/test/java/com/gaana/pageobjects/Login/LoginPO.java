@@ -59,6 +59,7 @@ public class LoginPO extends BaseAutomation {
 	}
 
 	public void clickOnSignIn() {
+		wait.waitForVisibilityOfElement(signInBtn);
 		generic.click(signInBtn);
 	}
 
@@ -133,7 +134,9 @@ public class LoginPO extends BaseAutomation {
 
 	public void enterEmailPassword(String emailPass) throws InterruptedException {
 		try {
-			generic.EnterText(emailPassTxtbox, emailPass);
+			wait.hardWait(2);
+			System.out.println("emailpass"+emailPass);
+			sendKeys(emailPassTxtbox, emailPass);
 		} catch (Exception e) {
 			/*
 			 * generic.click(By.xpath("//div[@class='bodyloader']")); Thread.sleep(1000);
@@ -145,7 +148,9 @@ public class LoginPO extends BaseAutomation {
 	}
 
 	public void clickOnEmailContinue() {
-		generic.click(emailContinueBtn);
+		wait.waitForVisibilityOfElement(emailContinueBtn);
+		click(emailContinueBtn);
+		wait.hardWait(1);
 	}
 
 	public void clickOnGoogleLogin() throws InterruptedException {

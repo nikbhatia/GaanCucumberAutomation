@@ -19,10 +19,12 @@ public class URLBuilder {
     public static Map<String, String> endPoints = new HashMap<String, String>();
 
     public static void setEndPoint() {
-        endPoints.put("podcastPage", "/season");
+        endPoints.put("podcastPage", "/podcast");
+        endPoints.put("myMusicPage","/music");
         endPoints.put("subscriptionPage", "/subscribe/buy-gaana-plus");
         endPoints.put("artistPage", "/artist");
         endPoints.put("albumPage", "/album");
+
     }
 
 

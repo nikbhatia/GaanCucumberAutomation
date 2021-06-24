@@ -5,7 +5,7 @@ Feature: Test Scenarios for validating Payment functionality
 @Gaana @Regression
 Scenario Outline: Verify the Gaana packs on the subscription page
 
-		Given user opens the application "homePage"
+    Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user clicks on Get Gaana Plus link
     Then user verifies that "subscriptionPage" is displayed
