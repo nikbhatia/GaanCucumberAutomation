@@ -15,7 +15,7 @@ import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
-@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana", glue = {
+@CucumberOptions(features = { "src/test/java/com/gaana/features/Hamburger" }, tags = "@Gaana", glue = {
 		"com.gaana.stepdefinitions","com.gaana.test.base" }, plugin = { "pretty",
 				"html:target/cucumber-reports/cucumber.html", "json:target/cucumber-reports/Cucumber.json" }, monochrome = true)
 
@@ -56,7 +56,7 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 		er.startResultSummaryTable("testOverview");
 		er.updateResultSummaryTable();
 		
-		EmailableReport.out.println("</tr>");
+		//EmailableReport.out.println("</tr>");
 		
 		er.startScenarioSummaryTable("methodOverview");
 		EmailableReport.out.println(subject);
