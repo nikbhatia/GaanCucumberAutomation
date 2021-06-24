@@ -56,8 +56,6 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 		er.startResultSummaryTable("testOverview");
 		er.updateResultSummaryTable();
 		
-		EmailableReport.out.println("</tr>");
-		
 		er.startScenarioSummaryTable("methodOverview");
 		EmailableReport.out.println(subject);
 		

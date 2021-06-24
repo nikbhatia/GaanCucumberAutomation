@@ -68,12 +68,14 @@ public class EmailableReport {
 	}
 	
 	public void updateResultSummaryTable() {
+		out.print("<tr>");
 		summaryCell(String.valueOf(Test_Runner.totalScenarioCount), true);
 		summaryCell(String.valueOf(Test_Runner.passedScenarioCount), true);
 		summaryCell(String.valueOf(Test_Runner.failedScenarioCount), true);
 		summaryCell(Test_Runner.startDate, true);
 		summaryCell(Test_Runner.endDate, true);
 		summaryCell(Test_Runner.totalTime, true);
+		out.print("</tr></table>");
 	}
 	
 	public void startScenarioSummaryTable(String style) {
@@ -84,7 +86,7 @@ public class EmailableReport {
 	}
 	
 	public void endHtml(PrintWriter out) {
-		out.println("</body></html>");
+		out.println("</table></body></html>");
 	}
 	
 	public String millisToTimeConversion(long seconds) {
