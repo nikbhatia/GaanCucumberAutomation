@@ -191,6 +191,7 @@ public class LoginPO extends BaseAutomation {
 			EnterFbPassword(Password);
 			clickOnFbLoginBtn();
 			generic.switchToParenttWindow(parentWinHandle);
+			Thread.sleep(3000);
 			break;
 
 		case "Google":
@@ -203,6 +204,7 @@ public class LoginPO extends BaseAutomation {
 			EnterGmailPassword(Password);
 			clickOnNextBtn();
 			generic.switchToParenttWindow(parentWinHandle);
+			Thread.sleep(3000);
 			break;
 
 		case "GaanaPlus":
@@ -212,6 +214,7 @@ public class LoginPO extends BaseAutomation {
 			clickOnEmailContinue();
 			enterEmailPassword(Password);
 			clickOnEmailContinue();
+			Thread.sleep(3000);
 			break;
 		default:
 			System.out.println("The provided userType is invalid");

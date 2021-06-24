@@ -49,6 +49,7 @@ public class PlaylistStepDef extends BaseAutomation{
     public void user_edits_the_playlist_name(String string) {
     	playlistPO.clickOnThreeDot();
     	playlistPO.clickOnEditPlaylist();
+    	wait.hardWait(2);
     	playlistPO.clearPlaylistTextbox();
     	playlistPO.enterEditPlaylistName(string);
     	playlistPO.clickOnSaveButton();
@@ -89,6 +90,7 @@ public class PlaylistStepDef extends BaseAutomation{
     	assertTrue(playlistPO.validatePresenceDeleteSelectedDisabled(), "'Delete Selected button is either not displayed or is not disabled.");
     	playlistPO.clickOnSelectAll();
     	playlistPO.clickOnDeleteSelected();
+    	wait.hardWait(2);
     	playlistPO.clickOnSaveButton();
     }
 
