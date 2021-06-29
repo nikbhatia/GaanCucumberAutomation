@@ -25,7 +25,7 @@ public class HamburgerStepDef {
 	GenericMethod generic = new GenericMethod();
 	GenericClassMethod genericClass = new GenericClassMethod();
 	
-	@Then("user click on Hamburger icon")
+	@Then("user clicks on Hamburger icon")
 	public void user_click_on_Hamburger_icon() {
 		hamburgerPO.clickOnHamburgerIcon();
 	}

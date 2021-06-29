@@ -118,7 +118,6 @@ public class PaymentPO extends BaseAutomation {
 			}
 			driver.switchTo().defaultContent();
 		}*/
-		System.out.println("Hello hello");
 		Thread.sleep(4000);
 		driver.switchTo().frame(0);
 		generic.EnterText(cardNumbertxtbox, cardNumber);
