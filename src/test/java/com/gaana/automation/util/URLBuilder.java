@@ -24,6 +24,8 @@ public class URLBuilder {
         endPoints.put("subscriptionPage", "/subscribe/buy-gaana-plus");
         endPoints.put("artistPage", "/artist");
         endPoints.put("albumPage", "/album");
+        endPoints.put("androidTv","/tv");
+        endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
 
     }
 
