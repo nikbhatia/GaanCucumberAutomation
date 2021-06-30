@@ -1,5 +1,7 @@
 package com.gaana.stepdefinitions.Login;
 
+import cucumber.api.java.en.And;
+import org.apache.kafka.common.protocol.types.Field;
 import org.testng.Assert;
 
 import com.gaana.automation.util.GenericClassMethod;
@@ -45,4 +47,17 @@ public class LoginStepDef {
 	public void user_logouts_the_app() throws InterruptedException {
 		Assert.assertTrue(loginPO.LogOut());
 	}
+
+	@Then("user validates {string} with value {string}")
+	public void validate_androidTv_PageLoad(String label, String value){
+           Assert.assertTrue(loginPO.validatePresenceOfElementsOnLoginScreen(label,value));
+	}
+
+	@And("user logged in with {string}")
+	public void userLogin(String loginType){
+		Assert.assertTrue(loginPO.verifyAndroidTvLogin(loginType));
+	}
+
+
+
 }

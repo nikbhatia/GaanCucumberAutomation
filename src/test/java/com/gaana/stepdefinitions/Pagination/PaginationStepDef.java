@@ -21,7 +21,7 @@ public class PaginationStepDef {
 	
 	@Then("user clicks on {string} link from home page")
 	public void user_clicks_on_link_from_home_page(String titleHeading) throws InterruptedException {
-		genericClass.clickOnGaanaLogo();
+		//genericClass.clickOnGaanaLogo();
 		paginationPO.clickOntitleHeading_SeeAllLink(titleHeading);
 	}
 

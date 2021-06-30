@@ -2,14 +2,16 @@ package com.gaana.stepdefinitions.Podcast;
 
 import com.gaana.automation.util.TestNGLogUtility;
 import com.gaana.pageobjects.Podcast.PodcastPO;
+import com.gaana.test.base.BaseAutomation;
 import com.gaana.test.base.PageObjectWrapper;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
 import org.testng.Assert;
-
 import java.text.ParseException;
 
-public class PodcastStepDef {
+public class PodcastStepDef extends BaseAutomation{
 
 
     PodcastPO podcastPO = (PodcastPO) PageObjectWrapper.getObject(PodcastPO.class);
@@ -81,7 +83,6 @@ public class PodcastStepDef {
     public void verifyFavouritePodcastPage(){
         Assert.assertTrue(podcastPO.markPodcastFavourite());
     }
-
 
 
 

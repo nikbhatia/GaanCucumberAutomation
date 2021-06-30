@@ -1,7 +1,11 @@
-Feature: Test Scenarios for login functionality for different kind of users 
+#Author: pravish.mittal
 
-@Gaana
- Scenario Outline: Verify user is able to login into app with different userTypes
+Feature: Test Scenarios for validating Login functionality
+
+
+@Gaana @Regression
+ Scenario Outline: Verify user is able to login with GaanaPlus credentials
+
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     And verifies the user login profile
@@ -9,7 +13,28 @@ Feature: Test Scenarios for login functionality for different kind of users
     
     Examples:
     |loginType   |
-  	|Facebook    |
   	|GaanaPlus   |
-  	|NonGaanaPlus|
-
+  	
+ @Gaana @Regression
+ Scenario Outline: Verify user is able to login with Non-GaanaPlus credentials
+    Given user opens the application "homePage"
+    Then user logins with "<loginType>"
+    And verifies the user login profile
+    Then user logouts the app
+    
+    Examples:
+    |loginType   |
+  	|NonGaanaPlus   |
+  	
+ @Gaana @Regression
+ Scenario Outline: Verify user is able to login with Facebook credentials
+    Given user opens the application "homePage"
+    Then user logins with "<loginType>"
+    And verifies the user login profile
+    Then user logouts the app
+    
+    Examples:
+    |loginType   |
+  	|Facebook   |
+  	
+  	
