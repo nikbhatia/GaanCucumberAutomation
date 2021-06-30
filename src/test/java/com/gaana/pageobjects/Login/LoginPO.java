@@ -11,31 +11,32 @@ import com.gaana.test.base.BaseAutomation;
 public class LoginPO extends BaseAutomation {
 
 	GenericMethod generic = new GenericMethod();
-
 	private By signInBtn = By.xpath("//button[contains(text(),'Log In / Sign Up')]");
 	private By loginPopup = By.xpath("//strong[@class='title' and text()='Login/Signup']");
-
 	private By fbLink = By.xpath("//button[contains(text(),'Facebook')]");
 	private By fbEmailTxtbox = By.xpath("(//input[@id='email'])[1]");
 	private By fbPassTxtbox = By.id("pass");
 	private By fbLoginBtn = By.xpath("//input[@name='login']");
-
 	private By googleLink = By.xpath("//button[contains(text(),'Google')]");
 	private By gmailTxtbox = By.xpath("//input[@type='email']");
 	private By nextBtn = By.xpath("//span[contains(text(),'Next')]");
 	private By gmailPasswordTxtbox = By.xpath("//input[@type='password']");
-
 	private By txtEmail = By.xpath("//div[contains(@class,'login-input')]//input[@type='text']");
 	private By emailPassTxtbox = By.xpath("//input[contains(@type,'password')]");
 	private By emailContinueBtn = By.xpath("//button[@type='submit']");
-
 	private By loginImg = By.xpath("//button[contains(@class,'user_ic')]");
 	private By profileLink = By.xpath("//a[contains(@href,'profile')]//span");
-
 	public static By userNameText = By.xpath("//div[contains(@class,'info')]//strong");
 	private By logoutBtn = By.xpath("//span[contains(text(),'Log Out')]");
-	
 	private By gaanaLogo = By.xpath("//header//a[contains(@class,'logo')]");
+	private By eleAndroidTvHead = By.xpath("//h1[contains(text() ,'${title}')]");
+	private By txtEmailAndroidTv = By.xpath("//input[contains(@id,'login_id')]");
+	private By txtPassAndroidTv = By.xpath("//input[contains(@id,'login_pw')]");
+	private By eleUserAndroidTv = By.xpath("//strong[contains(text(),'${title}')]");
+	private By btnContinue = By.xpath("//button[@class=\"custom-btn active\"]");
+	private By txtboxTvCode = By.xpath("//input[@name=\"code\"]");
+	private By eleCodeInvalid = By.xpath("//label[text()=\"Enter Code Displayed on TV\"]");
+
 
 	public String Email, Password, UserName;
 	String parentWinHandle = null;
@@ -96,7 +97,7 @@ public class LoginPO extends BaseAutomation {
 		}
 
 	}
-	
+
 	public void clickOnGaanaLogo() throws InterruptedException {
 		try {
 			generic.click(gaanaLogo);
@@ -135,7 +136,7 @@ public class LoginPO extends BaseAutomation {
 	public void enterEmailPassword(String emailPass) throws InterruptedException {
 		try {
 			wait.hardWait(2);
-			System.out.println("emailpass"+emailPass);
+			System.out.println("emailpass" + emailPass);
 			sendKeys(emailPassTxtbox, emailPass);
 		} catch (Exception e) {
 			/*
@@ -179,47 +180,78 @@ public class LoginPO extends BaseAutomation {
 			return false;
 		}
 	}
-	
+
 	public void login_UserGaana(String string) throws InterruptedException {
 		switch (string) {
-		case "Facebook":
-			Thread.sleep(3000);
-			clickOnFbLogin();
-			parentWinHandle = generic.getParentWindowHandle();
-			generic.switchToNewWindow();
-			EnterFbEmail(Email);
-			EnterFbPassword(Password);
-			clickOnFbLoginBtn();
-			generic.switchToParenttWindow(parentWinHandle);
-			Thread.sleep(3000);
-			break;
+			case "Facebook":
+				Thread.sleep(3000);
+				clickOnFbLogin();
+				parentWinHandle = generic.getParentWindowHandle();
+				generic.switchToNewWindow();
+				EnterFbEmail(Email);
+				EnterFbPassword(Password);
+				clickOnFbLoginBtn();
+				generic.switchToParenttWindow(parentWinHandle);
+				Thread.sleep(3000);
+				break;
 
-		case "Google":
-			Thread.sleep(3000);
-			clickOnGoogleLogin();
-			parentWinHandle = generic.getParentWindowHandle();
-			generic.switchToNewWindow();
-			EnterGmailEmail(Email);
-			clickOnNextBtn();
-			EnterGmailPassword(Password);
-			clickOnNextBtn();
-			generic.switchToParenttWindow(parentWinHandle);
-			Thread.sleep(3000);
-			break;
+			case "Google":
+				Thread.sleep(3000);
+				clickOnGoogleLogin();
+				parentWinHandle = generic.getParentWindowHandle();
+				generic.switchToNewWindow();
+				EnterGmailEmail(Email);
+				clickOnNextBtn();
+				EnterGmailPassword(Password);
+				clickOnNextBtn();
+				generic.switchToParenttWindow(parentWinHandle);
+				Thread.sleep(3000);
+				break;
 
-		case "GaanaPlus":
-		case "NonGaanaPlus":
-			Thread.sleep(3000);
-			enterEmailId(Email);
-			clickOnEmailContinue();
-			enterEmailPassword(Password);
-			clickOnEmailContinue();
-			Thread.sleep(3000);
-			break;
-		default:
-			System.out.println("The provided userType is invalid");
-			break;
+			case "GaanaPlus":
+			case "NonGaanaPlus":
+				Thread.sleep(3000);
+				enterEmailId(Email);
+				clickOnEmailContinue();
+				enterEmailPassword(Password);
+				clickOnEmailContinue();
+				Thread.sleep(3000);
+				break;
+			default:
+				System.out.println("The provided userType is invalid");
+				break;
 		}
 	}
+
+	public boolean validatePresenceOfElementsOnLoginScreen(String labelName, String value) {
+		boolean flag = false;
+		switch (labelName.toString()) {
+
+			case "AndroidTv Heading":
+				wait.hardWait(10);
+				System.out.println(eleAndroidTvHead + "" +value);
+				flag = isDisplayed(parameterizedLocator(eleAndroidTvHead, value));
+				break;
+
+		}
+		return flag;
+	}
+
+
+	public boolean verifyAndroidTvLogin(String loginType){
+		boolean flag = false;
+		loginCredentials(loginType);
+		sendKeys(txtEmailAndroidTv,Email);
+		click(btnContinue);
+		flag = isDisplayed(parameterizedLocator(eleUserAndroidTv,Email));
+		sendKeys(txtPassAndroidTv,Password);
+		click(btnContinue);
+		sendKeys(txtboxTvCode,"123456");
+		click(btnContinue);
+        return flag && isDisplayed(eleCodeInvalid);
+
+	}
+
+
 
 }
