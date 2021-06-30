@@ -24,8 +24,12 @@ public class URLBuilder {
         endPoints.put("subscriptionPage", "/subscribe/buy-gaana-plus");
         endPoints.put("artistPage", "/artist");
         endPoints.put("albumPage", "/album");
+        endPoints.put("Songpage","/song/paani-paani-3");
+        endPoints.put("Playlistpage","/playlist/gaana-dj-hindi-top-50-1");
+        endPoints.put("Album","/album/baarish-ban-jaana");
         endPoints.put("androidTv","/tv");
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
+
 
     }
 
