@@ -52,6 +52,13 @@ public class GenericMethod extends BaseAutomation {
 		Select dropdown = new Select(driver.findElement(elementLocator));
 		dropdown.selectByIndex(input);
 	}
+	
+	public String getSelectedTextDropdown(By elementLocator) {
+		Select dropdown = new Select(driver.findElement(elementLocator));
+		// get selected option with getFirstSelectedOption() with its text
+	      WebElement opt = dropdown.getFirstSelectedOption();
+	      return opt.getText();
+	}
 
 	public String getText(By elementLocator) {
 		WaitFor_visibility(elementLocator);
