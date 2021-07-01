@@ -29,6 +29,7 @@ public class URLBuilder {
         endPoints.put("Album","/album/baarish-ban-jaana");
         endPoints.put("androidTv","/tv");
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
+        endPoints.put("Lyricspage","/lyrics/tere-sang-yaara-1");
 
 
     }
