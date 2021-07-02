@@ -33,3 +33,16 @@ Feature: Test Scenarios of Search
         |      Podcasts     |
         |    Albums         |
 
+  @Gaana1
+  Scenario Outline: Verify Track search for "<loginType>" user
+    Given user opens the application "homePage"
+    Then  user logins with "<loginType>"
+    And   user search with the "Dheeme" keyword
+    And   verify search result available for "Dheeme"
+
+
+    Examples:
+      |loginType   |
+      |GaanaPlus   |
+      |NonGaanaPlus|
+

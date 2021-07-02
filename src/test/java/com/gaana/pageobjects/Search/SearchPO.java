@@ -11,7 +11,7 @@ public class SearchPO extends BaseAutomation {
     private By eleSearchIcon = By.xpath("//button[@class=\"input_box\"]");
     private By eleSearchBox = By.xpath("//input[@type = \"search\"]");
     private By eleHeadPlaylist = By.xpath("//h2[contains(text() ,'${title}')]");
-   // private By eleHeadPlaylist = By.xpath("//h2[text()=\"Playlists\"]");
+   private By  eleSearchResult = By.xpath("(//a[contains(@title,'${title}')])[1]");
 
 
     public void search(String keyword){
@@ -27,7 +27,9 @@ public class SearchPO extends BaseAutomation {
         return isDisplayed(parameterizedLocator(eleHeadPlaylist,heading));
     }
 
-
+   public boolean verifySearchResult(String searchResult){
+        return isDisplayed(parameterizedLocator(eleSearchResult,searchResult));
+   }
 
 
 

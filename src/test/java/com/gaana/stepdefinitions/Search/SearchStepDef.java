@@ -19,6 +19,10 @@ public class SearchStepDef extends BaseAutomation {
         Assert.assertTrue(searchPO.verifyHead(heading));
     }
 
+    @And("verify search result available for {string}")
+    public void verifySearchResult(String searchResult){
+        Assert.assertTrue(searchPO.verifySearchResult(searchResult));
+    }
 
 
 }
