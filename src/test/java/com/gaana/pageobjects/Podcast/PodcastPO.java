@@ -29,8 +29,8 @@ public class PodcastPO extends BaseAutomation {
     private By eleSections = By.xpath("//div[contains(@class,\"caro_container\")]");
     private By elePodcastName = By.xpath("//h1[@class='title']");
     private By elePodcastTitleBreadcrumb = By.xpath("//span[@class='_title']");
-    private By btnMarkFavPodcast = By.xpath("//button[contains(@class ,\"icon sm-hide\")]/*[@class='fav ']");
-    private By btnUnmarkPodcastFav = By.xpath("//button[contains(@class ,\"icon sm-hide\")]/*[@class='fav checked']");
+    private By btnMarkFavPodcast = By.xpath("//button[@title='Follow' and @id ='playVBtn' ]");
+    private By btnUnmarkPodcastFav = By.xpath("//button[@title=\"Following\"]");
     private By btnUnmarkPodcastEpisodeFav = By.xpath("(//button[contains(@class ,\"_btn _fav sm-hide\")])[1]/*[@class='fav checked']");
     private By btnMarkPodcastEpisodeFav = By.xpath("(//button[contains(@class ,\"_btn _fav sm-hide\")])[1]/*[@class='fav ']");
     private By eleSeasonPodcast = By.xpath("//small[contains(text(),\"Season 1\")]");
@@ -43,8 +43,8 @@ public class PodcastPO extends BaseAutomation {
     private By eleFavPodcastMyMusic = By.xpath("//strong[contains(text(),'Favourite Podcasts')]");
     private By eleSeeAllFavPodcast = By.xpath("//a[contains(@href,'/myfavoritepodcasts')]/span");
     private By eleEntityMarkedFav = By.xpath("//a[@class=\"al t_over\" and contains(text() ,\"Ep 1 - Himachal\")]");
+    private By eleNameFavPodcast = By.xpath("//a[@title=\"All Things Music with Sarthak\"]");
 
-    String markedfavPodcast ="";
 
 
 
@@ -233,12 +233,18 @@ public class PodcastPO extends BaseAutomation {
      * @author nikhil.bhatia
      */
     public boolean markPodcastFavourite() {
-        wait.waitForElementToBeClickable(btnMarkFavPodcast);
+        if(isDisplayed(btnMarkFavPodcast)) {
+            click(btnMarkFavPodcast);
+            return isDisplayed(btnUnmarkPodcastFav);
+        }
+        else if(isDisplayed(btnUnmarkPodcastFav)){
+        click(btnUnmarkPodcastFav);
+        wait.hardWait(2);
         click(btnMarkFavPodcast);
         wait.waitForVisibilityOfElement(btnUnmarkPodcastFav);
-        markedfavPodcast=getText(elePodcastName);
         return isDisplayed(btnUnmarkPodcastFav);
     }
+    return false;}
 
     /**
      * This method use to verify favourite podcast displayed on my music page
@@ -252,8 +258,8 @@ return true; // will update
     }
 
 
-    public boolean verifymarkedFavExist(String name){
-return true; //will update
+    public boolean verifyFavPodcast(){
+       return isDisplayed(eleNameFavPodcast);
     }
 
 

@@ -31,7 +31,7 @@ public class URLBuilder {
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
         endPoints.put("particularPodcast","/podcast/all-things-music-with-sarthak-2018");
         endPoints.put("Lyricspage","/lyrics/tere-sang-yaara-1");
-
+        endPoints.put("FavPodcastPage","/myfavoritepodcasts");
     }
 
 

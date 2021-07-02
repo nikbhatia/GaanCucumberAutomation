@@ -2,7 +2,7 @@ Feature: Test Scenarios of podcast page
 
   Author: nikhil.bhatia@gaana.com
 
-  @Gaana1
+  @Gaana
  Scenario Outline: Verify headings,Breadcrumbs,sections on podcast page for GaanaPlus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -17,7 +17,7 @@ Feature: Test Scenarios of podcast page
       |GaanaPlus   |
 
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify headings,Breadcrumbs,sections on podcast page for Non GaanaPlus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -31,7 +31,7 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |NonGaanaPlus|
 
-  @Gaana1
+  @Gaana
   Scenario: Verify headings,Breadcrumbs,sections on podcast page for Non Logged In user
     Given user opens the application "homePage"
     When user opens the application "podcastPage"
@@ -42,7 +42,7 @@ Feature: Test Scenarios of podcast page
 
 
 
-  @Gaana1
+  @Gaana
  Scenario Outline: Verify podcast played from podcast page for Gaana Plus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -58,7 +58,7 @@ Feature: Test Scenarios of podcast page
       |GaanaPlus   |
 
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify podcast played from podcast page for Non Gaana Plus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -73,7 +73,7 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |NonGaanaPlus|
 
-  @Gaana1
+  @Gaana
   Scenario: Verify podcast played from podcast page for Non Logged In user
     Given user opens the application "homePage"
     When user opens the application "podcastPage"
@@ -84,7 +84,7 @@ Feature: Test Scenarios of podcast page
     And   user verifies podcast is being played
 
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify sorting on podcast page for Gaana Plus user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
@@ -96,7 +96,7 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |GaanaPlus   |
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify sorting on podcast page for Non Gaana Plus user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
@@ -108,7 +108,7 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |NonGaanaPlus|
 
-  @Gaana1
+  @Gaana
   Scenario: Verify sorting on podcast page for Non Logged In User
     Given user opens the application "homePage"
     When  user opens the application "particularPodcast"
@@ -116,16 +116,14 @@ Feature: Test Scenarios of podcast page
     And   user verifies sorting is working correctly
 
 
-  @Gaana2
-  Scenario Outline: Verify markfav functionality on podcast page
+  @Gaana1
+  Scenario Outline: Verify markfav functionality on podcast page for "<loginType>" User
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
-    When  user opens the application "podcastPage"
-    Then  user clicked on first podcast
+    When  user opens the application "particularPodcast"
     Then  user mark podcast as favourite
-    When  user opens the application "myMusicPage"
-    Then  user mark podcast season and episode as favourite
-    And   user verifies podcast season and episode added under favourite section
+    When  user opens the application "FavPodcastPage"
+    Then  user verify podcast is availble in list of fav podcast
 
 
 
@@ -133,9 +131,10 @@ Feature: Test Scenarios of podcast page
       |loginType   |
       |GaanaPlus   |
       |NonGaanaPlus|
-      |Facebook    |
+#      |Facebook    |
 
-
+#    Then  user mark podcast season and episode as favourite
+#    And   user verifies podcast season and episode added under favourite section
 
 
 

@@ -84,6 +84,10 @@ public class PodcastStepDef extends BaseAutomation{
         Assert.assertTrue(podcastPO.markPodcastFavourite());
     }
 
+    @Then("user verify podcast is availble in list of fav podcast")
+    public void verifyMarkedFavPodcast(){
+        Assert.assertTrue(podcastPO.verifyFavPodcast());
+    }
 
 
 
