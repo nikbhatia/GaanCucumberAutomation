@@ -33,7 +33,7 @@ Feature: Test Scenarios of Search
         |      Podcasts     |
         |    Albums         |
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify Track search for "<loginType>" user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
