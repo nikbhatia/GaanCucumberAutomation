@@ -20,17 +20,17 @@ public class PodcastPO extends BaseAutomation {
 
     private By eleBreadcrumbTitle = By.xpath("//span[contains(text() ,'${title}')]");
     private By elePodcast = By.xpath("//h2[contains(text(),'${heading}')]");
-    private By eleSectionHeading = By.xpath("//section[@class='caro caro_sqr mWrap']//h2");
+    private By eleSectionHeading = By.xpath("//section[contains(@class,'caro caro_sqr mWrap')]//h2");
     private By eleGaanaTagline = By.xpath("//strong[contains(text(),'${heading}')]");
     private By eleFirstPodcast = By.xpath("(//a[contains(@class,\"img default_bg\")])[1]");
     private By btnPlayPodcast = By.xpath("//button[contains(text(),'Play')]");
     private By elePodcastPlayTime = By.xpath("//span[@class=\"_a\"]");
-    private By btnPausePlayer = By.xpath("//button[@class='play']/*[@viewBox='0 0 24 24']");
+    private By btnPausePlayer = By.xpath("//button[@class='play playing']/*[@viewBox='0 0 24 24']");
     private By eleSections = By.xpath("//div[contains(@class,\"caro_container\")]");
     private By elePodcastName = By.xpath("//h1[@class='title']");
     private By elePodcastTitleBreadcrumb = By.xpath("//span[@class='_title']");
-    private By btnMarkFavPodcast = By.xpath("//button[contains(@class ,\"icon sm-hide\")]/*[@class='fav ']");
-    private By btnUnmarkPodcastFav = By.xpath("//button[contains(@class ,\"icon sm-hide\")]/*[@class='fav checked']");
+    private By btnMarkFavPodcast = By.xpath("//button[@title='Follow' and @id ='playVBtn' ]");
+    private By btnUnmarkPodcastFav = By.xpath("//button[@title=\"Following\"]");
     private By btnUnmarkPodcastEpisodeFav = By.xpath("(//button[contains(@class ,\"_btn _fav sm-hide\")])[1]/*[@class='fav checked']");
     private By btnMarkPodcastEpisodeFav = By.xpath("(//button[contains(@class ,\"_btn _fav sm-hide\")])[1]/*[@class='fav ']");
     private By eleSeasonPodcast = By.xpath("//small[contains(text(),\"Season 1\")]");
@@ -43,8 +43,8 @@ public class PodcastPO extends BaseAutomation {
     private By eleFavPodcastMyMusic = By.xpath("//strong[contains(text(),'Favourite Podcasts')]");
     private By eleSeeAllFavPodcast = By.xpath("//a[contains(@href,'/myfavoritepodcasts')]/span");
     private By eleEntityMarkedFav = By.xpath("//a[@class=\"al t_over\" and contains(text() ,\"Ep 1 - Himachal\")]");
+    private By eleNameFavPodcast = By.xpath("//a[@title=\"All Things Music with Sarthak\"]");
 
-    String markedfavPodcast ="";
 
 
 
@@ -64,7 +64,7 @@ public class PodcastPO extends BaseAutomation {
             wait.hardWait(3);
             String date2 =  getText(eleDateFirstEpisode);
             System.out.println(date2);
-            if(compareDate(date1,date2)>0){
+            if(compareDate(date1,date2) ==1){
                 flag = true;
             }
             else flag = false;
@@ -73,7 +73,7 @@ public class PodcastPO extends BaseAutomation {
             click(eleNewestFirst);
             wait.hardWait(3);
             String date3 =  getText(eleDateFirstEpisode);
-            if(compareDate(date2,date3)<0){
+            if(compareDate(date2,date3)==1){
                 TestNGLogUtility.info("sorting for Newest first working fine "+flag);
                 return flag && true;
             }
@@ -102,14 +102,14 @@ public class PodcastPO extends BaseAutomation {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         Date date1 = sdf.parse(str1);
         Date date2 = sdf.parse(str2);
-        if(date1.compareTo(date2) >= 0)
+        if(date1.compareTo(date2) != 0)
         {
             return 1;
         }
-        else if(date1.compareTo(date2) <= 0)
-        {
-            return -1;
-        }
+//        else if(date1.compareTo(date2) <= 0)
+//        {
+//            return -1;
+//        }
         return 0;
     }
 
@@ -200,7 +200,7 @@ public class PodcastPO extends BaseAutomation {
      */
     public boolean verifyPodcastPlayed() {
         wait.waitForVisibilityOfElement(btnPausePlayer);
-        wait.hardWait(10);
+        wait.hardWait(4);
         if (isDisplayed(btnPausePlayer)) {
             System.out.println(getText(elePodcastPlayTime));
             if(getText(elePodcastPlayTime)=="00:00"){
@@ -233,12 +233,18 @@ public class PodcastPO extends BaseAutomation {
      * @author nikhil.bhatia
      */
     public boolean markPodcastFavourite() {
-        wait.waitForElementToBeClickable(btnMarkFavPodcast);
+        if(isDisplayed(btnMarkFavPodcast)) {
+            click(btnMarkFavPodcast);
+            return isDisplayed(btnUnmarkPodcastFav);
+        }
+        else if(isDisplayed(btnUnmarkPodcastFav)){
+        click(btnUnmarkPodcastFav);
+        wait.hardWait(2);
         click(btnMarkFavPodcast);
         wait.waitForVisibilityOfElement(btnUnmarkPodcastFav);
-        markedfavPodcast=getText(elePodcastName);
         return isDisplayed(btnUnmarkPodcastFav);
     }
+    return false;}
 
     /**
      * This method use to verify favourite podcast displayed on my music page
@@ -252,8 +258,8 @@ return true; // will update
     }
 
 
-    public boolean verifymarkedFavExist(String name){
-return true; //will update
+    public boolean verifyFavPodcast(){
+       return isDisplayed(eleNameFavPodcast);
     }
 
 
