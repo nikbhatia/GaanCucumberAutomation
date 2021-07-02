@@ -26,6 +26,7 @@ public class URLBuilder {
         endPoints.put("albumPage", "/album");
         endPoints.put("androidTv","/tv");
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
+        endPoints.put("particularPodcast","/podcast/all-things-music-with-sarthak-2018");
 
     }
 

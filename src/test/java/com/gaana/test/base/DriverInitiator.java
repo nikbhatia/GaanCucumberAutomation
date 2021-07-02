@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Capabilities;
@@ -166,6 +167,7 @@ public class DriverInitiator {
             System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
             DesiredCapabilities capabilities = DesiredCapabilities.chrome();
             ChromeOptions options = new ChromeOptions();
+            //options.addArguments("--incognito");
             options = acceptSecureCertificate(options);
             _setProxyMonitor(capabilities, browserType, options);
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);

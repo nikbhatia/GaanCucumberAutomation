@@ -15,7 +15,7 @@ import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
-@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana", glue = {
+@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana1", glue = {
 		"com.gaana.stepdefinitions","com.gaana.test.base" }, plugin = { "pretty",
 				"html:target/cucumber-reports/cucumber.html", "json:target/cucumber-reports/Cucumber.json" }, monochrome = true)
 
@@ -35,6 +35,7 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 		if (file.exists())
 			file.delete();
 		subject = new StringBuilder();
+		subject.append("");
 		totalScenarioCount=0;passedScenarioCount=0;failedScenarioCount=0;scenarioNumber=0;
 		try {
 			EmailableReport.out = er.createWriter(System.getProperty("user.dir"));
@@ -72,10 +73,13 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 
 	@After(timeout = 0)
 	public void tearDown(Scenario scenario) {
-		/*System.out.println("------------------------------------------------------------------------------------");
-		System.out.println("Scenario: " + scenario.getName() + " [" + scenario.getStatus() + "]");
-		System.out.println("------------------------------------------------------------------------------------");*/
+	System.out.println("------------------------------------------------------------------------------------");
+	System.out.println("Scenario: " + scenario.getName() + " [" + scenario.getStatus() + "]");
+		System.out.println("------------------------------------------------------------------------------------");
 		scenarioNumber++;totalScenarioCount++;
+		if(subject==null){
+			subject = new StringBuilder();
+		}
 		subject.append("<tr><td>")
 	       .append(scenarioNumber)
 	       .append("</td><td>")
