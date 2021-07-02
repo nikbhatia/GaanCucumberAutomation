@@ -51,8 +51,8 @@ public class PaymentStepDef {
 	    paymentPO.enterCardDetails(paymentType, cardNumber, cardName, cardExpMonth, cardExpYear, cardCVV);
 	}
 
-	@Then("user verifies that {string} message is failed")
-	public void user_verifies_that_message_is_failed(String string) {
+	@Then("user verifies that {string} message is displayed")
+	public void user_verifies_that_message_is_displayed(String string) {
 		assertTrue(paymentPO.validateTransactionFailedMessage(string), "Transaction failed message is not properly displayed.");
 	}
 	
@@ -60,6 +60,44 @@ public class PaymentStepDef {
 	@Then("user clicks on link {string}")
 	public void user_clicks_on_link(String string) {
 	    paymentPO.clickOnlink(string);
+	}
+	
+	@Then("user selects {string}")
+	public void user_selects(String paymentType) {
+	    paymentPO.clickPaymentMode(paymentType);
+	}
+
+	@Then("user enters the registered paytm mobile number {string}")
+	public void user_enters_the_registered_paytm_mobile_number(String string) {
+	   paymentPO.enterPaytmNumber(string);
+	}
+
+	@Then("user enters the Paytm OTP {string}")
+	public void user_enters_the_Paytm_OTP(String string) {
+	    paymentPO.enterPaytmOTP(string);
+	}
+
+	@Then("user verifies {string} message is displayed")
+	public void user_verifies_message_is_displayed(String string) {
+		assertTrue(paymentPO.validateInvalidOTPMessage(string), string+ " message is not displayed.");
+	}
+
+	@Then("user verifies that banks {string} are displayed as Popular Banks")
+	public void user_verifies_that_banks_are_displayed_as_Popular_Banks(String string) {
+		assertTrue(paymentPO.validatePopularBanksLOV(string), "NetBanking page doesn't have "+string+" listed banks..");
+	}
+
+	@Then("user clicks on {string} from the popular banks list and verifies that it is selected successfully")
+	public void user_clicks_on_from_the_popular_banks_list_and_verifies_that_it_is_selected_successfully(String bankName) {
+		paymentPO.clickPopularBank(bankName);
+		assertTrue(paymentPO.validateSelectedBank(bankName), bankName+" is not selected successfully");
+	}
+
+	@Then("user selects the {string} from the Other Banks dropdown and verifies that it is selected successfully")
+	public void user_selects_the_from_the_Other_Banks_dropdown_and_verifies_that_it_is_selected_successfully(String bankName) {
+		paymentPO.selectOtherBank(bankName);
+		assertTrue(paymentPO.validateSelectedBank(bankName), bankName+" is not selected successfully");
+	
 	}
 
 }

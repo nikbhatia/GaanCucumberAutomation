@@ -33,8 +33,17 @@ public class PaymentPO extends BaseAutomation {
 	private By cardCVVtxtbox = By.xpath("//input[contains(@name,'security_code')]");
 	
 	private By transactionFailedMsg = By.xpath("//div[contains(@class,'data-container')]//h3");
+	private By invalidOTPmsg = By.xpath("//div[contains(@class,'error')]");
 	
 	private By link_aTag_xpath = By.xpath("//a[contains(text(),'${heading}')]");
+	
+	private By txtPaytmNumber = By.xpath("//input[contains(@id,'phone-number')]");
+	private By txtPaytmOTP = By.xpath("//input[contains(@id,'otp')]");
+	
+
+	private By optionsPopularBanks = By.xpath("//span[contains(@class,'s_name')]");
+	private By chkbxPopularBanks = By.xpath("//span[contains(text(),'${bank}')]//preceding-sibling::span");
+	private By ddOtherBanks = By.xpath("//select[contains(@name,'bankcode')]");
 	
 	
 	GenericMethod generic = new GenericMethod();
@@ -91,6 +100,11 @@ public class PaymentPO extends BaseAutomation {
         }
         return flag;
     }
+	
+	public void clickPaymentMode(String paymentType) {
+		wait.hardWait(2);
+		generic.click(parameterizedLocator(paymentType_xpath,paymentType));
+	}
 
 	public void enterCardDetails(String paymentType, String cardNumber, String cardName, String cardExpMonth, String cardExpYear, String cardCVV) throws InterruptedException {
 		generic.click(parameterizedLocator(paymentType_xpath,paymentType));
@@ -146,8 +160,40 @@ public class PaymentPO extends BaseAutomation {
 		return false;
 	}
 	
+	public boolean validateInvalidOTPMessage(String message) {
+		if (getText(invalidOTPmsg).equalsIgnoreCase(message))
+			return true;
+		return false;
+	}
+	
 	public void clickOnlink(String string) {
 		generic.click(parameterizedLocator(link_aTag_xpath, string));
 	}
 	
+	public void enterPaytmNumber(String number) {
+		generic.EnterText(txtPaytmNumber, number);
+	}
+	
+	public void enterPaytmOTP(String number) {
+		generic.EnterText(txtPaytmOTP, number);
+	}
+	
+	public boolean validatePopularBanksLOV(String options) {
+		wait.hardWait(2);
+		return generic.validateListOfValues(options, optionsPopularBanks);
+	}
+	
+	public void clickPopularBank(String bankName) {
+		generic.click(parameterizedLocator(chkbxPopularBanks, bankName));
+	}
+	
+	public boolean validateSelectedBank(String bankName) {
+		if(generic.getSelectedTextDropdown(ddOtherBanks).equalsIgnoreCase(bankName))
+			return true;
+		return false;
+	}
+	
+	public void selectOtherBank(String bankName) {
+		generic.selectFromDropDwnByVisibleText(ddOtherBanks, bankName);
+	}
 }
