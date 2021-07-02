@@ -116,7 +116,7 @@ Feature: Test Scenarios of podcast page
     And   user verifies sorting is working correctly
 
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify markfav functionality on podcast page for "<loginType>" User
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"

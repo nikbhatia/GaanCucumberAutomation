@@ -2,7 +2,7 @@ Feature: Test Scenarios of Search
 
   Author: nikhil.bhatia@gaana.com
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify Trending  "<results>" for "<loginType>" user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
@@ -18,7 +18,7 @@ Feature: Test Scenarios of Search
       |GaanaPlus   |      Podcasts     |
       |GaanaPlus   |    Albums         |
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify Trending  "<results>" for "Non Logged In" user
     Given user opens the application "homePage"
     And   user search with the "Trending" keyword
@@ -33,7 +33,7 @@ Feature: Test Scenarios of Search
         |      Podcasts     |
         |    Albums         |
 
-  @Gaana1
+  @Gaana
   Scenario Outline: Verify Track search for "<loginType>" user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
