@@ -74,7 +74,7 @@ Feature: Test Scenarios of podcast page
       |NonGaanaPlus|
 
   @Gaana1
-  Scenario : Verify podcast played from podcast page for Non Logged In user
+  Scenario: Verify podcast played from podcast page for Non Logged In user
     Given user opens the application "homePage"
     When user opens the application "podcastPage"
     And  user verifies "Breadcrumb Title" with value "Gaana" "Podcast"
@@ -109,7 +109,7 @@ Feature: Test Scenarios of podcast page
       |NonGaanaPlus|
 
   @Gaana1
-  Scenario : Verify sorting on podcast page for Non Logged In User
+  Scenario: Verify sorting on podcast page for Non Logged In User
     Given user opens the application "homePage"
     When  user opens the application "particularPodcast"
     And   user verifies "Episode Headings" with value "Episode" "Uploaded On" "Duration"
