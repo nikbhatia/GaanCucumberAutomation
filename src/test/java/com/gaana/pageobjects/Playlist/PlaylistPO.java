@@ -89,8 +89,8 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public boolean validatePlaylistCreatedHeading() {
-		System.out.println("a"+getText(createdPlaylistHeading));
-		System.out.println("b"+playListName);
+		//System.out.println("a"+getText(createdPlaylistHeading));
+		//System.out.println("b"+playListName);
 		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
 			return true;
 		return false;
