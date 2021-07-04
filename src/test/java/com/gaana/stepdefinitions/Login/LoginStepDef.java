@@ -40,7 +40,7 @@ public class LoginStepDef {
 	public void verifies_the_user_login_profile() throws InterruptedException {
 		Assert.assertEquals(loginPO.getUserName(), loginPO.UserName, "User name not verified");
 		loginPO.clickOnGaanaLogo();
-		TestNGLogUtility.info("Hello");
+		//TestNGLogUtility.info("Hello");
 	}
 
 	@Then("user logouts the app")
