@@ -34,10 +34,14 @@ public class SongPO extends BaseAutomation {
         click(Threeeedot);
     }
 
-    public ArrayList<String> getelementsfromthreedotpopup() throws InterruptedException {
-        generic.customWaitFor_visibility(threeDotIcon,30);
+
+    public ArrayList<String> getelementsfromthreedotpopup() throws InterruptedException
+    {
+        wait.hardWait(2);
+        generic.isDisplay(threeDotIcon);
         ArrayList<String> arr= new ArrayList<String>();
         List<WebElement> ls= driver.findElements(threedotpopupelements);
+
         for(int i=0;i<ls.size();i=i+1)
         {
             String s=ls.get(i).getText();
@@ -53,9 +57,15 @@ public class SongPO extends BaseAutomation {
     public String[] stringToArray(String str)
 
     {
-        String[] animalsArray = str.split(",");
-        System.out.println(animalsArray.length);
-        return animalsArray;
+        String[] elementsList = str.split(",");
+        return elementsList;
+    }
+
+
+    public boolean validateThreeDotLOV(String options)
+    {
+        wait.hardWait(2);
+        return generic.validateListOfValues(options, threedotpopupelements);
     }
 
 
