@@ -16,7 +16,7 @@ public class SongMyStepdefs {
 
     PlaylistPO playlistPO = (PlaylistPO) PageObjectWrapper.getObject(PlaylistPO.class);
     SongPO songPO = (SongPO) PageObjectWrapper.getObject(SongPO.class);
-    //HamburgerPO hamburgerPO= (HamburgerPO) PageObjectWrapper.getObject(HamburgerPO.class);
+
 
     @And("user clicks on threedot link")
     public void userClicksOnThreedotLink ()
@@ -30,7 +30,7 @@ public class SongMyStepdefs {
     public void userVerifiesTheElementsOnThePopUp(String arg0) throws InterruptedException{
 
         System.out.println("inside userVerifiesTheElementsOnThePopUp");
-       Assert.assertTrue(songPO.validateThreeDotLOV(arg0));
+       //Assert.assertTrue(songPO.validateThreeDotLOV(arg0));
        Assert.assertEquals(songPO.stringToArray(arg0),songPO.getelementsfromthreedotpopup().toArray());
     }
 }
