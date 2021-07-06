@@ -19,7 +19,7 @@ Scenario Outline: Verify pagination for the New Releases page
 
 		Given user opens the application "homePage"
     Then user logins with "<loginType>"
-    Then user clicks on "New Releases" link from home page
+    Then user clicks on "New Releases" link
     Then user verifies pagination of the "New Releases"
     
     Examples:
