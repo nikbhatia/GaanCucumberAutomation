@@ -2,6 +2,18 @@
 
 Feature: Test Scenarios for validating playlist functionality
 
+ @Gaana @Regression
+ Scenario: Verify clean up playlist functionality
+ 
+    Given user opens the application "homePage"
+    Then user logins with "GaanaPlus"
+    Then user clicks on "My Music" link
+    Then user clean ups the "Test Playlist"
+    Then user logouts the app
+    Then user logins with "NonGaanaPlus"
+    Then user clicks on "My Music" link
+    Then user clean ups the "Test Playlist"
+
 @Gaana @Regression
  Scenario Outline: Verify create playlist functionality for Gaana Plus user
  

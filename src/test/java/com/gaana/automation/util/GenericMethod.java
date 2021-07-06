@@ -36,6 +36,11 @@ public class GenericMethod extends BaseAutomation {
 		executor.executeScript("arguments[0].click();", driver.findElement(elementLocator));
 		// driver.findElement(elementLocator).click();
 	}
+	
+	public void click(WebElement ele) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", ele);
+	}
 
 	public void EnterText(By elementLocator, String text) {
 		WaitFor_visibility(elementLocator);

@@ -99,4 +99,9 @@ public class PlaylistStepDef extends BaseAutomation{
     	assertTrue(playlistPO.validatePlaylistCreatedHeading(), "Playlist "+PlaylistPO.playListName+" heading is incorrect.");
     	assertTrue(playlistPO.validatePlaylistCreatedTrackCount("00 Track"), "Track Count is incorrect");
     }
+    
+    @Then("user clean ups the {string}")
+    public void user_clean_ups_the(String string) {
+        playlistPO.playlistCleanUp(string);
+    }
 }
