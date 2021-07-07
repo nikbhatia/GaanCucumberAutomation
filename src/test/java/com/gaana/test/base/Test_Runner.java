@@ -14,9 +14,9 @@ import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
-@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana", glue = {
+@CucumberOptions(features = { "src/test/java/com/gaana/features/Playlist" }, tags = "@Gaana", glue = {
 		"com.gaana.stepdefinitions","com.gaana.test.base" }, plugin = { "pretty",
-				"html:target/cucumber-reports/cucumber.html", "json:target/cucumber-reports/Cucumber.json","rerun:rerun/failed_scenarios.txt" }, monochrome = true)
+				"json:target/cucumber-reports/Cucumber.json","rerun:rerun/failed_scenarios.txt" }, monochrome = true)
 
 public class Test_Runner extends AbstractTestNGCucumberTests {
 	
