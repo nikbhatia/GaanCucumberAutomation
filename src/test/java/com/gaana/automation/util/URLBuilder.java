@@ -30,6 +30,7 @@ public class URLBuilder {
         endPoints.put("androidTv","/tv");
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
         endPoints.put("Lyricspage","/lyrics/tere-sang-yaara-1");
+        endPoints.put("Playlist","/playlist");
 
 
     }
