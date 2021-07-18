@@ -36,6 +36,11 @@ public class GenericMethod extends BaseAutomation {
 		executor.executeScript("arguments[0].click();", driver.findElement(elementLocator));
 		// driver.findElement(elementLocator).click();
 	}
+	
+	public void click(WebElement ele) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", ele);
+	}
 
 	public void EnterText(By elementLocator, String text) {
 		WaitFor_visibility(elementLocator);
@@ -51,6 +56,13 @@ public class GenericMethod extends BaseAutomation {
 	public void selectFromDropDwnByIndex(By elementLocator, int input) {
 		Select dropdown = new Select(driver.findElement(elementLocator));
 		dropdown.selectByIndex(input);
+	}
+	
+	public String getSelectedTextDropdown(By elementLocator) {
+		Select dropdown = new Select(driver.findElement(elementLocator));
+		// get selected option with getFirstSelectedOption() with its text
+	      WebElement opt = dropdown.getFirstSelectedOption();
+	      return opt.getText();
 	}
 
 	public String getText(By elementLocator) {

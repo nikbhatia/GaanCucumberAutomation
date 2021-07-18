@@ -29,9 +29,12 @@ public class URLBuilder {
         endPoints.put("Album","/album/baarish-ban-jaana");
         endPoints.put("androidTv","/tv");
         endPoints.put("quickSilverLogin","/cXVpY2tzaWx2ZXI=");
+        endPoints.put("particularPodcast","/podcast/all-things-music-with-sarthak-2018");
         endPoints.put("Lyricspage","/lyrics/tere-sang-yaara-1");
+
         endPoints.put("Playlist","/playlist");
 
+        endPoints.put("FavPodcastPage","/myfavoritepodcasts");
 
     }
 

@@ -1,6 +1,9 @@
 package com.gaana.pageobjects.Playlist;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import com.gaana.automation.util.GenericMethod;
@@ -34,7 +37,8 @@ public class PlaylistPO extends BaseAutomation {
 	private By selectAllButton = By.xpath("//div[contains(@class,'selectAll')]//button//label");
 	private By deleteSelectedButtonDisabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
 	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected')]");
-	
+	private By listTestPlaylist = By.xpath("//a[contains(@title,'${heading}')]");
+	private By seeAllMyPlaylist = By.xpath("//a[contains(@title,'My Playlists')]");
 	
 	
 	private By playlistValidateMsg = By.xpath("//span[@class='playlist_name validateTips']");
@@ -45,7 +49,7 @@ public class PlaylistPO extends BaseAutomation {
 	private By editPlaylistValidationMsg = By.xpath("//span[@class='playlist_title validateTips']");
 	private By playListNameHeader = By.xpath("//div[@class='_t1']/h1");
 	public By playlistIcon = By.xpath("//div[@class='card_layout_data']");
-
+	
 	public void clickOnButton(String string) {
 		generic.click(parameterizedLocator(button_xpath, string));
 	}
@@ -89,8 +93,8 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public boolean validatePlaylistCreatedHeading() {
-		System.out.println("a"+getText(createdPlaylistHeading));
-		System.out.println("b"+playListName);
+		//System.out.println("a"+getText(createdPlaylistHeading));
+		//System.out.println("b"+playListName);
 		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
 			return true;
 		return false;
@@ -229,6 +233,25 @@ public class PlaylistPO extends BaseAutomation {
 
 	public String getEmptyPlaylistMsg() {
 		return generic.getText(emptyPlaylistMsg);
+	}
+	
+	public void playlistCleanUp(String title) {
+		
+		generic.click(seeAllMyPlaylist);
+	
+		List<WebElement> testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist,title));
+		int playlistCount = testPlaylists.size();
+		
+		for(int i=0;i<playlistCount;i++) {
+			testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist,title));
+			generic.click(testPlaylists.get(0));
+			clickOnThreeDot();
+			clickOnDeletePlaylist();
+			clickOnDeletePlaylistButton();
+		}
+
+	
+	
 	}
 
 }
