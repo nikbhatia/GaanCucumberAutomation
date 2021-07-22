@@ -126,8 +126,8 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public void clickOnSaveButton() {
-		wait.hardWait(2);
-		generic.click(saveBtn);
+		wait.hardWait(3);
+		jsUtil.clickByJS(saveBtn);
 	}
 
 	public void clickOnDeletePlaylist() {
