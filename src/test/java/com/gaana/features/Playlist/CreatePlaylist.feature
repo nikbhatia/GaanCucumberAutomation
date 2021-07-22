@@ -154,7 +154,7 @@ Feature: Test Scenarios for validating playlist functionality
   	|NonGaanaPlus|
   	
   	
-  @Gaana @Regression @Gaana12
+   @Regression @Gaana12
  Scenario Outline: Verify delete playlist functionality for Gaana Plus user
  
     Given user opens the application "homePage"
@@ -169,7 +169,7 @@ Feature: Test Scenarios for validating playlist functionality
     |loginType|
   	|GaanaPlus|
   	
- @Gaana @Regression @Gaana12
+  @Regression @Gaana12
  Scenario Outline: Verify delete playlist functionality for Non-Gaana Plus user
  
     Given user opens the application "homePage"
