@@ -28,6 +28,7 @@ public class SearchPO extends BaseAutomation {
     }
 
    public boolean verifySearchResult(String searchResult){
+        wait.hardWait(4);
         return isDisplayed(parameterizedLocator(eleSearchResult,searchResult));
    }
 
