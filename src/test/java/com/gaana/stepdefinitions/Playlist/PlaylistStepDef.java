@@ -89,6 +89,7 @@ public class PlaylistStepDef extends BaseAutomation{
     	playlistPO.clickOnEditPlaylist();
     	assertTrue(playlistPO.validatePresenceDeleteSelectedDisabled(), "'Delete Selected button is either not displayed or is not disabled.");
     	playlistPO.clickOnSelectAll();
+    	wait.hardWait(2);
     	playlistPO.clickOnDeleteSelected();
     	wait.hardWait(2);
     	playlistPO.clickOnSaveButton();

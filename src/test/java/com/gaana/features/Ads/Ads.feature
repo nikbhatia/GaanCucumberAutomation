@@ -85,7 +85,7 @@ Feature: Test Scenarios for validating Advertisements functionality
   	
     
     @Gaana @Regression
- Scenario Outline: Verify delete playlist functionality for Gaana Plus user
+ Scenario Outline: Verify delete song functionality from the playlist for Gaana Plus user
  
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -93,14 +93,19 @@ Feature: Test Scenarios for validating Advertisements functionality
     Then user clicks on "Create Playlist" button
     And user creates "Test Playlist"
     Then user verifies the created playlist
+    Then user adds a song in playlist
+    Then user clicks on "My Music" link
+    Then user verifies that song is added successfully in playlist
+     Then user deletes the added song from the playlist
+    Then user verifies that song is deleted successfully from the playlist
     Then user deletes the playlist and verifies playlist is deleted successfully
     
     Examples:
     |loginType|
   	|GaanaPlus|
   	
- @Gaana @Regression
- Scenario Outline: Verify delete playlist functionality for Non-Gaana Plus user
+  	@Gaana @Regression
+ Scenario Outline: Verify delete song functionality from the playlist for Non-Gaana Plus user
  
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
@@ -108,8 +113,14 @@ Feature: Test Scenarios for validating Advertisements functionality
     Then user clicks on "Create Playlist" button
     And user creates "Test Playlist"
     Then user verifies the created playlist
+    Then user adds a song in playlist
+    Then user clicks on "My Music" link
+    Then user verifies that song is added successfully in playlist
+     Then user deletes the added song from the playlist
+    Then user verifies that song is deleted successfully from the playlist
     Then user deletes the playlist and verifies playlist is deleted successfully
     
     Examples:
     |loginType|
   	|NonGaanaPlus|
+ 
