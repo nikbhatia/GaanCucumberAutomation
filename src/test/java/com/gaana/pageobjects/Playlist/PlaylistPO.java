@@ -36,7 +36,7 @@ public class PlaylistPO extends BaseAutomation {
 	private By addedSongPlaylistPage = By.xpath("//a[contains(@class,'_tra t_over')]//span[contains(@class,'t_over')]");
 	private By selectAllButton = By.xpath("//div[contains(@class,'selectAll')]//button//label");
 	private By deleteSelectedButtonDisabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
-	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected')]");
+	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and not(@disabled)]");
 	private By listTestPlaylist = By.xpath("//a[contains(@title,'${heading}')]");
 	private By seeAllMyPlaylist = By.xpath("//a[contains(@title,'My Playlists')]");
 	

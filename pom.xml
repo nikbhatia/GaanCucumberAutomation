@@ -203,35 +203,7 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.0.0</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>Web Automation Suite</projectName>
-							<!-- optional, per documentation set this to "true" to bypass generation 
-								of Cucumber Reports entirely, defaults to false if not specified -->
-							<skip>false</skip>
-							<!-- output directory for the generated report -->
-							<outputDirectory>reports/html-reports</outputDirectory>
-							<!-- optional, defaults to outputDirectory if not specified -->
-							<inputDirectory>target/cucumber-reports</inputDirectory>
-							<jsonFiles>
-								<!-- supports wildcard or name pattern -->
-								<param>**/*.json</param>
-							</jsonFiles>
-							
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			
 		</plugins>
 	</build>
 

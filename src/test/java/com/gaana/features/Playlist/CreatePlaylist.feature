@@ -113,7 +113,7 @@ Feature: Test Scenarios for validating playlist functionality
     |loginType|
   	|NonGaanaPlus|
   	
- @Gaana @Regression
+ @Gaana12 @Regression
  Scenario Outline: Verify delete song functionality from the playlist for Gaana Plus user
  
     Given user opens the application "homePage"
@@ -133,7 +133,7 @@ Feature: Test Scenarios for validating playlist functionality
     |loginType|
   	|GaanaPlus|
   	
-  	@Gaana @Regression
+  	@Gaana12 @Regression
  Scenario Outline: Verify delete song functionality from the playlist for Non-Gaana Plus user
  
     Given user opens the application "homePage"
@@ -154,7 +154,7 @@ Feature: Test Scenarios for validating playlist functionality
   	|NonGaanaPlus|
   	
   	
-   @Regression @Gaana12
+   @Regression @Gaana
  Scenario Outline: Verify delete playlist functionality for Gaana Plus user
  
     Given user opens the application "homePage"
@@ -169,7 +169,7 @@ Feature: Test Scenarios for validating playlist functionality
     |loginType|
   	|GaanaPlus|
   	
-  @Regression @Gaana12
+  @Regression @Gaana
  Scenario Outline: Verify delete playlist functionality for Non-Gaana Plus user
  
     Given user opens the application "homePage"
