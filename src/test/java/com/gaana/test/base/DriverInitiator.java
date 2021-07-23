@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
@@ -171,6 +171,7 @@ public class DriverInitiator {
             options = acceptSecureCertificate(options);
             _setProxyMonitor(capabilities, browserType, options);
             capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+            WebDriverManager.chromedriver().setup();
             DriverInitiator.driver = new ChromeDriver((Capabilities) capabilities);
         }
         if (browserType.equalsIgnoreCase("FIREFOX")) {
