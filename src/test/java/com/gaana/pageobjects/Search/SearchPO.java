@@ -22,12 +22,13 @@ public class SearchPO extends BaseAutomation {
     }
 
     public boolean verifyHead(String heading){
-        wait.hardWait(1);
+        wait.hardWait(4);
         scrollToElement(parameterizedLocator(eleHeadPlaylist,heading));
         return isDisplayed(parameterizedLocator(eleHeadPlaylist,heading));
     }
 
    public boolean verifySearchResult(String searchResult){
+        wait.hardWait(4);
         return isDisplayed(parameterizedLocator(eleSearchResult,searchResult));
    }
 

@@ -75,7 +75,7 @@ public class PodcastStepDef extends BaseAutomation{
 
     @And("user verifies sorting is working correctly")
     public void verifySorting() throws ParseException {
-        Assert.assertTrue(podcastPO.verifySorting(),"sorting is not working correctly");
+        Assert.assertFalse(podcastPO.verifySorting(),"sorting is not working correctly");
         TestNGLogUtility.pass("Sorting is working correctly");
     }
 

@@ -6,7 +6,7 @@ Feature: Test Scenarios of Search
   Scenario Outline: Verify Trending  "<results>" for "<loginType>" user
     Given user opens the application "homePage"
     Then  user logins with "<loginType>"
-    And   user search with the "Trending" keyword
+    And   user search with the "assam" keyword
     And   verify result available for "<results>"
 
 
@@ -21,7 +21,7 @@ Feature: Test Scenarios of Search
   @Gaana
   Scenario Outline: Verify Trending  "<results>" for "Non Logged In" user
     Given user opens the application "homePage"
-    And   user search with the "Trending" keyword
+    And   user search with the "assam" keyword
     And   verify result available for "<results>"
 
 
