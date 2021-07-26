@@ -213,6 +213,8 @@ public class GenericMethod extends BaseAutomation {
 
 		if (listOfValues.size() == expectedValues.length) {
 			for (int i = 0; i < listOfValues.size(); i++) {
+				System.out.println("Expected value : "+expectedValues[i]);
+				System.out.println("Actual value : "+getText(listOfValues.get(i)).trim());
 				if (getText(listOfValues.get(i)).trim().equalsIgnoreCase(expectedValues[i])) {
 					flag = true;
 				} else {
