@@ -12,7 +12,7 @@ import com.gaana.test.base.BaseAutomation;
 public class PlaylistPO extends BaseAutomation {
 
 	GenericMethod generic = new GenericMethod();
-	public static String playListName,firstTrendingSong = null;
+	public static String playListName, firstTrendingSong = null;
 
 	private By button_xpath = By.xpath("//button[contains(text(),'${heading}')]");
 	private By createPlayListPopup = By.xpath("//h2[contains(text(),'Create New Playlist')]");
@@ -29,18 +29,20 @@ public class PlaylistPO extends BaseAutomation {
 	private By saveBtn = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Save')]");
 	private By deletePlaylistLink = By.xpath("//span[contains(text(),'Delete Playlist')]");
 	private By deletePlaylistButton = By.xpath("//button[contains(text(),'Delete Playlist')]");
-	private By firstTrendingSongHome = By.xpath("//a[contains(@title,'Trending Songs')]//ancestor::section//div[contains(@class,'t_wrap')]//a");
+	private By firstTrendingSongHome = By
+			.xpath("//a[contains(@title,'Trending Songs')]//ancestor::section//div[contains(@class,'t_wrap')]//a");
 	private By addToPlaylistLink = By.xpath("//span[contains(text(),'Add to Playlist')]");
 	private By addToExistingPlaylist = By.xpath("//div[contains(@class,'_inner cent-pp addtoPl_pp')]//strong");
 	private By firstTrendingSongHeading = By.xpath("//section[contains(@class,'info')]//h1");
 	private By addedSongPlaylistPage = By.xpath("//a[contains(@class,'_tra t_over')]//span[contains(@class,'t_over')]");
 	private By selectAllButton = By.xpath("//div[contains(@class,'selectAll')]//button//label");
-	private By deleteSelectedButtonDisabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
-	private By deleteSelectedButtonEnabled = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and not(@disabled)]");
+	private By deleteSelectedButtonDisabled = By
+			.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and @disabled]");
+	private By deleteSelectedButtonEnabled = By
+			.xpath("//section[contains(@class,'info')]//button[contains(text(),'Delete Selected') and not(@disabled)]");
 	private By listTestPlaylist = By.xpath("//a[contains(@title,'${heading}')]");
 	private By seeAllMyPlaylist = By.xpath("//a[contains(@title,'My Playlists')]");
-	
-	
+
 	private By playlistValidateMsg = By.xpath("//span[@class='playlist_name validateTips']");
 	private By playlistCreateSuccessMsg = By.xpath("//div[@class='event-notification']/div");
 	private By createdFirstPlaylistName = By.xpath("(//div[@class='arwtork_label']/a)[1]");
@@ -49,7 +51,7 @@ public class PlaylistPO extends BaseAutomation {
 	private By editPlaylistValidationMsg = By.xpath("//span[@class='playlist_title validateTips']");
 	private By playListNameHeader = By.xpath("//div[@class='_t1']/h1");
 	public By playlistIcon = By.xpath("//div[@class='card_layout_data']");
-	
+
 	public void clickOnButton(String string) {
 		generic.click(parameterizedLocator(button_xpath, string));
 	}
@@ -93,8 +95,6 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public boolean validatePlaylistCreatedHeading() {
-		//System.out.println("a"+getText(createdPlaylistHeading));
-		//System.out.println("b"+playListName);
 		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
 			return true;
 		return false;
@@ -105,7 +105,6 @@ public class PlaylistPO extends BaseAutomation {
 			return true;
 		return false;
 	}
-
 
 	public void clickOnThreeDot() {
 		wait.waitForVisibilityOfElement(threeDot);
@@ -142,49 +141,46 @@ public class PlaylistPO extends BaseAutomation {
 	public void clickOnDeletePlaylistButton() {
 		generic.click(deletePlaylistButton);
 	}
-	
+
 	public void clickFirstTrendingSongHome() {
 		generic.click(firstTrendingSongHome);
 		firstTrendingSong = getText(firstTrendingSongHeading);
 	}
-	
+
 	public void clickOnAddToPlaylist() {
 		generic.click(addToPlaylistLink);
 	}
-	
+
 	public boolean addSongToExistingPlaylist() {
 		if (getText(addToExistingPlaylist).equalsIgnoreCase(playListName)) {
 			generic.click(addToExistingPlaylist);
 			return true;
-		}	
+		}
 		return false;
 	}
-	
-	
+
 	public boolean validateTrendingSongAddedToPlaylist() {
 		if (firstTrendingSong.contains(getText(addedSongPlaylistPage)))
 			return true;
 		return false;
 	}
-	
+
 	public boolean validatePresenceDeleteSelectedDisabled() {
 		boolean flag = false;
 		flag = isDisplayed(deleteSelectedButtonDisabled);
 		return flag;
 	}
-	
+
 	public void clickOnSelectAll() {
 		generic.click(selectAllButton);
 	}
 
 	public void clickOnDeleteSelected() {
-		if(isDisplayed(deleteSelectedButtonEnabled))
+		if (isDisplayed(deleteSelectedButtonEnabled))
 			generic.click(deleteSelectedButtonEnabled);
 		else
 			Assert.fail("Delete Selected button is not enabled/clickable");
 	}
-	
-	
 
 	public boolean isPlaylistValidateMsgDisplay() {
 		if (generic.isDisplay(playlistValidateMsg)) {
@@ -234,24 +230,32 @@ public class PlaylistPO extends BaseAutomation {
 	public String getEmptyPlaylistMsg() {
 		return generic.getText(emptyPlaylistMsg);
 	}
-	
+
 	public void playlistCleanUp(String title) {
-		
+
 		generic.click(seeAllMyPlaylist);
-	
-		List<WebElement> testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist,title));
+
+		List<WebElement> testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist, title));
 		int playlistCount = testPlaylists.size();
-		
-		for(int i=0;i<playlistCount;i++) {
-			testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist,title));
+
+		for (int i = 0; i < playlistCount; i++) {
+			testPlaylists = driver.findElements(parameterizedLocator(listTestPlaylist, title));
 			generic.click(testPlaylists.get(0));
 			clickOnThreeDot();
 			clickOnDeletePlaylist();
 			clickOnDeletePlaylistButton();
 		}
-
+	}
 	
-	
+	public void retrySongDeletePlaylist() {
+		if(!isDisplayed(createdPlaylistHeading)) {
+			System.out.println("Song is not deleted from the playlist in first attempt...");
+			driver.navigate().refresh();
+			clickOnSelectAll();
+			clickOnDeleteSelected();
+			clickOnSaveButton();
+		}
+		
 	}
 
 }
