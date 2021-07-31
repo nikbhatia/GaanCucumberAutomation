@@ -9,7 +9,7 @@ public class HomePO extends BaseAutomation {
 
 	GenericMethod generic = new GenericMethod();
 	
-	private By menuOptions = By.xpath("//section//a[contains(@class,'link')]//small");
+	private By menuOptions = By.xpath("//section//*[contains(@class,'link')]//small");
 	private By quicklinkOptions = By.xpath("//strong[contains(text(),'Quicklinks')]//following-sibling::div//span");
 	private By userIconOptions = By.xpath("//*[contains(@class,'lgdrop_pp')]//span");
 	private By footerlinkOptions = By.xpath("//div[contains(@class,'row3')]//span");

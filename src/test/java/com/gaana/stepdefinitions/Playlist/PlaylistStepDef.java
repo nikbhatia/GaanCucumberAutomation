@@ -93,6 +93,8 @@ public class PlaylistStepDef extends BaseAutomation{
     	playlistPO.clickOnDeleteSelected();
     	wait.hardWait(2);
     	playlistPO.clickOnSaveButton();
+
+    	playlistPO.retrySongDeletePlaylist();
     }
 
     @Then("user verifies that song is deleted successfully from the playlist")
