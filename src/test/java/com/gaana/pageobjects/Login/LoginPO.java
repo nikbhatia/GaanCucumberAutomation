@@ -172,6 +172,7 @@ public class LoginPO extends BaseAutomation {
 
 	public boolean LogOut() throws InterruptedException {
 		clickOnLoginImg();
+		Thread.sleep(3000);
 		clickOnLogout();
 		String txt = generic.getText(signInBtn);
 		if (txt.contains("Log In")) {
