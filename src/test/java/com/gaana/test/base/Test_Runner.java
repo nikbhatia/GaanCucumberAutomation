@@ -14,7 +14,7 @@ import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 
-@CucumberOptions(features = { "src/test/java/com/gaana/features/Login" }, tags = "@Gaana", glue = {
+@CucumberOptions(features = { "src/test/java/com/gaana/features" }, tags = "@Gaana", glue = {
 		"com.gaana.stepdefinitions","com.gaana.test.base" }, plugin = { "pretty",
 				"json:target/cucumber-reports/Cucumber.json","rerun:rerun/failed_scenarios.txt" }, monochrome = true)
 
