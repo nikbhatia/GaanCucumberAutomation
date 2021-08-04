@@ -27,7 +27,7 @@ public class LoginPO extends BaseAutomation {
 	private By loginImg = By.xpath("//button[contains(@class,'user_ic')]");
 	private By profileLink = By.xpath("//a[contains(@href,'profile')]//span");
 	public static By userNameText = By.xpath("//div[contains(@class,'info')]//strong");
-	private By logoutBtn = By.xpath("//span[contains(text(),'Log Out')]");
+	private By logoutBtn = By.xpath("//div[contains(@class,'_li logout')]");
 	private By gaanaLogo = By.xpath("//header//a[contains(@class,'logo')]");
 	private By eleAndroidTvHead = By.xpath("//h1[contains(text() ,'${title}')]");
 	private By txtEmailAndroidTv = By.xpath("//input[contains(@id,'login_id')]");
