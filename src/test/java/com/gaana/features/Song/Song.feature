@@ -74,7 +74,7 @@ Feature: Test scenario for Gaana page
       | loginType    |
       | NonGaanaPlus |
 
-  @Gaana
+  @Gaa
   Scenario Outline: Verify playlist marked as favourite appear inside my music section
     Given user opens the application "Playlist"
     Then user logins with "<loginType>"
