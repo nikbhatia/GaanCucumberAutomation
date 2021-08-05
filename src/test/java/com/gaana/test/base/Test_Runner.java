@@ -80,7 +80,7 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 			subject = new StringBuilder();
 		}
 		
-		if(!(scenario.isFailed() && retry_flag==0)) {
+		if(!(scenario.isFailed() && retry_flag<2)) {
 			scenarioNumber++;totalScenarioCount++;
 			
 			subject.append("<tr><td>")
@@ -105,6 +105,6 @@ public class Test_Runner extends AbstractTestNGCucumberTests {
 	
 	@AfterClass
 	public void test() {
-		retry_flag=1;
+		retry_flag++;
 	}
 }
