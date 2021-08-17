@@ -209,6 +209,7 @@ public class LoginPO extends BaseAutomation {
 				Thread.sleep(3000);
 				break;
 
+			case "SimpleUser":
 			case "GaanaPlus":
 			case "NonGaanaPlus":
 				Thread.sleep(3000);
