@@ -101,9 +101,9 @@ Feature: Test scenario for Gaana page
     Then user verifies the languages "हिन्दी Hindi,English,ਪੰਜਾਬੀ Punjabi,తెలుగు Telugu,தமிழ் Tamil,भोजपुरी Bhojpuri,বাংলা Bengali,മലയാളം Malayalam,ಕನ್ನಡ Kannada,मराठी Marathi,ગુજરાતી Gujarati,हरयाणवी Haryanvi,اردو Urdu,অসমীয়া Assamese,राजस्थानी Rajasthani,ଓଡ଼ିଆ Odia" on the language pop up
     Then user verifies update button gets disabled on unselecting all the selected languages
     Then user verifies submitted language is selected on opening the language pop up
-#    Then user clicks on user icon
-#    Then user navigates to display and language tab in settings section
-#    Then user verifies language selected in display and language section
+    Then user clicks on user icon
+    Then user navigates to display and language tab in settings section
+    Then user verifies language selected in display and language section
 
 
 

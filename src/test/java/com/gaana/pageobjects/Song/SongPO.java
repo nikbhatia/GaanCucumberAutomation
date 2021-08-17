@@ -40,6 +40,7 @@ public class SongPO extends BaseAutomation {
 
     public boolean langSelectedInDisplayLangTab() throws InterruptedException {
         scrooling(settingsLanguage);
+        wait.hardWait(3);
         List <WebElement> displayTabLang=driver.findElements(settingsLanguage);
         List<WebElement> displaySelectedLang=new ArrayList<>();
         for(int i=0;i<displayTabLang.size();i++)
@@ -47,15 +48,15 @@ public class SongPO extends BaseAutomation {
 
             if(displayTabLang.get(i).getAttribute("class").contains("selected"))
             {
-                displaySelectedLang.add(ll.get(i));
+                displaySelectedLang.add(displayTabLang.get(i));
             }
 
         }
 
-        String tabLanguageSelectedShown=displaySelectedLang.get(0).getText();
-
-        System.out.println("tabLanguageSelectedShown inside langSelectedInDisplayLangTab method:  "+tabLanguageSelectedShown);
-        if(tabLanguageSelectedShown.equals(selectedLanguage))
+        String tabLanguageSelectedShown=displaySelectedLang.get(0).getText().trim().toUpperCase();
+        selectedLanguage = selectedLanguage.replaceAll("[^a-zA-Z]", "");
+        System.out.println("tabLanguageSelectedShown inside langSelectedInDisplayLangTab method  :"+tabLanguageSelectedShown+": selectedLanguage :"+selectedLanguage);
+        if(selectedLanguage.equals(tabLanguageSelectedShown))
         {
             return true;
         }
@@ -69,6 +70,7 @@ public class SongPO extends BaseAutomation {
         wait.waitForVisibilityOfElement(dd_profile);
         click(link_settings);
         click(link_displayLang);
+
     }
 
 
