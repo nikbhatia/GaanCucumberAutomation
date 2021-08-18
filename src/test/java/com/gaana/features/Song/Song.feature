@@ -93,7 +93,7 @@ Feature: Test scenario for Gaana page
     Then user verifies update button gets disabled on unselecting all the selected languages
     Then user verifies submitted language is selected on opening the language pop up
 
-  @Gaana
+  @Gaa
   Scenario Outline:  Verify language selection in the Gaana site for non Gaana plus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
