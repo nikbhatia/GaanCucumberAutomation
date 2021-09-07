@@ -8,12 +8,12 @@ Feature: Test Scenarios for validating Advertisements functionality
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user verifies that advertisements are displayed on "Home page"
-    Then user clicks on "New Releases" link
+    Then user clicks on "New Songs" link
     Then user verifies that advertisements are displayed on "New Releases page"
     Then user clicks on "Trending" link
     Then user verifies that advertisements are displayed on "Trending page"
-    Then user clicks on "Old Hits" link
-    Then user verifies that advertisements are displayed on "Old Hits page"
+    Then user clicks on "Old Songs" link
+    Then user verifies that advertisements are displayed on "Old Songs page"
     Then user clicks on "Radio" link
     Then user verifies that advertisements are displayed on "Radio page"
     Then user clicks on "Podcast" link
@@ -36,12 +36,12 @@ Feature: Test Scenarios for validating Advertisements functionality
  
     Given user opens the application "homePage"
     Then user verifies that advertisements are displayed on "Home page"
-    Then user clicks on "New Releases" link
+    Then user clicks on "New Songs" link
     Then user verifies that advertisements are displayed on "New Releases page"
     Then user clicks on "Trending" link
     Then user verifies that advertisements are displayed on "Trending page"
-    Then user clicks on "Old Hits" link
-    Then user verifies that advertisements are displayed on "Old Hits page"
+    Then user clicks on "Old Songs" link
+    Then user verifies that advertisements are displayed on "Old Songs page"
     Then user clicks on "Radio" link
     Then user verifies that advertisements are displayed on "Radio page"
     Then user clicks on "Podcast" link
@@ -60,12 +60,12 @@ Feature: Test Scenarios for validating Advertisements functionality
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user verifies that advertisements are not displayed on "Home page"
-    Then user clicks on "New Releases" link
+    Then user clicks on "New Songs" link
     Then user verifies that advertisements are not displayed on "New Releases page"
     Then user clicks on "Trending" link
     Then user verifies that advertisements are not displayed on "Trending page"
-    Then user clicks on "Old Hits" link
-    Then user verifies that advertisements are not displayed on "Old Hits page"
+    Then user clicks on "Old Songs" link
+    Then user verifies that advertisements are not displayed on "Old Songs page"
     Then user clicks on "Radio" link
     Then user verifies that advertisements are not displayed on "Radio page"
     Then user clicks on "Podcast" link
@@ -81,8 +81,7 @@ Feature: Test Scenarios for validating Advertisements functionality
     
     Examples:
     |loginType|   
-  	|GaanaPlus|
-  	
+  	|GaanaPlus| 	
     
     @Gaana @Regression
  Scenario Outline: Verify delete song functionality from the playlist for Gaana Plus user
