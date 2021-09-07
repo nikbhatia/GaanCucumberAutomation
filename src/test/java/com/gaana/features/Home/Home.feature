@@ -100,7 +100,7 @@ Feature: Test Scenarios for validating Home page functionality
   Scenario Outline: Verify the home page Menu list options for NonGaanaPlus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
-    Then user verifies the menu list options "All,Trending,New Releases,Old Hits,Moods & Genres,Radio,Podcast,My Music"
+    Then user verifies the menu list options "All,Trending Songs,New Songs,Old Songs,Moods & Genres,Album,Radio,Podcast,My Music"
 
     Examples: 
       | loginType    |
@@ -110,7 +110,7 @@ Feature: Test Scenarios for validating Home page functionality
   Scenario Outline: Verify the home page Menu list options for GaanaPlus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
-    Then user verifies the menu list options "All,Trending,New Releases,Old Hits,Moods & Genres,Radio,Podcast,My Music"
+    Then user verifies the menu list options "All,Trending Songs,New Songs,Old Songs,Moods & Genres,Album,Radio,Podcast,My Music"
 
     Examples: 
       | loginType |
@@ -119,4 +119,4 @@ Feature: Test Scenarios for validating Home page functionality
   @Gaana @Regression
   Scenario: Verify the home page Menu list options for 'Non-logged in' user
     Given user opens the application "homePage"
-    Then user verifies the menu list options "All,Trending,New Releases,Old Hits,Moods & Genres,Radio,Podcast,My Music"
+    Then user verifies the menu list options "All,Trending Songs,New Songs,Old Songs,Moods & Genres,Album,Radio,Podcast,My Music"
