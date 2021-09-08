@@ -99,7 +99,7 @@ public class PlayerPO extends BaseAutomation {
 
         String secondSongQueue=driver.findElement(secondSongInQueue).getAttribute("title");
         System.out.println("second Song in Queue List "+secondSongQueue);
-        return flag=song[0].trim().equalsIgnoreCase(secondSongQueue.trim());
+        return flag=song[0].trim().contains(secondSongQueue.trim());
 
     }
 
