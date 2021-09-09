@@ -64,9 +64,9 @@ Scenario Outline: Verify the different kind of payment modes on the payment page
     Then user selects "Paytm Wallet"
     Then user enters the registered paytm mobile number "<PaytmNumber>"
     Then user clicks on "Request OTP" button
-    Then user enters the Paytm OTP "<PaytmOTP>"
-    Then user clicks on "VERIFY & Proceed" button
-    Then user verifies "Invalid OTP entered." message is displayed
+    #Then user enters the Paytm OTP "<PaytmOTP>"
+    #Then user clicks on "VERIFY & Proceed" button
+    #Then user verifies "Invalid OTP entered." message is displayed
     
     Examples:
     |loginType   |PaytmNumber|  PaytmOTP |
