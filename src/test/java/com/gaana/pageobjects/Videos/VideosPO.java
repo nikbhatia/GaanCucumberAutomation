@@ -11,7 +11,7 @@ public class VideosPO extends BaseAutomation {
 
     GenericMethod generic = new GenericMethod();
 
-    private By VideoTabs = By.xpath("//div[@class='_ul']//a");
+    private By VideoTabs = By.xpath("//div[@class='_ul']//a//small");
     private By VideoSong = By.cssSelector("li:nth-child(1)>div>a");
     private By forwardscroll = By.cssSelector("button.btn.btn_next.sm-hide");
     private By hoverEle = By.xpath("//div[@class='_ul']");
