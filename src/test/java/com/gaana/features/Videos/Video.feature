@@ -35,7 +35,7 @@ Feature: Test Scenarios for video songs
       |loginType   |
       |NonGaanaPlus   |
 
-  @Gaana @Video2
+  @Gaana @Video
   Scenario Outline: Verify Videos tabs on video page for Non-GaanaPlus user
     Given user opens the application "homePage"
     Then user logins with "<loginType>"
