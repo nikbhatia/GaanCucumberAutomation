@@ -16,7 +16,7 @@ public class VideoStepDef {
 
     @Then("user clicks on gaanavideo tabs")
     public void click_on_video_tabs() {
-        videosPO.selectTabs();
+        //videosPO.selectTabs();
 
     }
 
