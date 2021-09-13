@@ -35,7 +35,7 @@ public class URLBuilder {
         endPoints.put("Playlist","/playlist");
 
         endPoints.put("FavPodcastPage","/myfavoritepodcasts");
-
+        endPoints.put("genrePage","/genre");
     }
 
 
