@@ -38,7 +38,7 @@ public class LoginStepDef {
 
 	@Given("verifies the user login profile")
 	public void verifies_the_user_login_profile() throws InterruptedException {
-		Assert.assertEquals(loginPO.getUserName(), loginPO.UserName, "User name not verified");
+		Assert.assertTrue(loginPO.getUserName().contains(loginPO.UserName));
 		loginPO.clickOnGaanaLogo();
 		//TestNGLogUtility.info("Hello");
 	}
