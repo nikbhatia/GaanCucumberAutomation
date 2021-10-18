@@ -4,7 +4,7 @@ Feature: Test scenario for Gaana page
   Scenario: Verify three dot functionality in songs page
     Given user opens the application "Songpage"
     And user clicks on threedot link
-    Then user verifies the elements "Share,Add To Playlist,Add To Queue,Download,View Lyrics,Get Song Info,View Album,View Artist" on the pop up
+    Then user verifies the elements "Share,Add To Playlist,Add To Queue,Download,Get Song Info,View Album,View Artist" on the pop up
 
 
   @Gaana
