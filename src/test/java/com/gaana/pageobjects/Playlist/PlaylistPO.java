@@ -22,8 +22,10 @@ public class PlaylistPO extends BaseAutomation {
 			.xpath("//section[contains(@class,'model _open')]//button[contains(text(),'Create Playlist')]");
 	private By createdPlaylist = By.xpath("//div[@class='t_wrap']//a");
 	private By createdPlaylistHeading = By.xpath("//section[contains(@class,'info')]//h1");
-	private By createdPlaylistTrackCount = By.xpath("//section[contains(@class,'info')]//span[2]");
-	private By threeDot = By.xpath("//div[contains(@class,'info')]//button[contains(@title,'More Options')]");
+	//private By createdPlaylistTrackCount = By.xpath("//section[contains(@class,'info')]//span[2]");
+	//private By threeDot = By.xpath("//div[contains(@class,'info')]//button[contains(@title,'More Options')]");
+	private By createdPlaylistTrackCount = By.xpath("(//section[contains(@class,'info')]//span)[1]");
+	private By threeDot = By.xpath("(//div[contains(@class,'info')]//button[contains(@title,'More Options')])[1]");
 	private By editPlaylistLink = By.xpath("//span[contains(text(),'Edit Playlist')]");
 	private By editPlaylistTextbox = By.xpath("//section[contains(@class,'info')]//input");
 	private By saveBtn = By.xpath("//section[contains(@class,'info')]//button[contains(text(),'Save')]");
@@ -95,7 +97,7 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public boolean validatePlaylistCreatedHeading() {
-		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName))
+		if (getText(createdPlaylistHeading).equalsIgnoreCase(playListName + " Songs"))
 			return true;
 		return false;
 	}
@@ -107,8 +109,9 @@ public class PlaylistPO extends BaseAutomation {
 	}
 
 	public void clickOnThreeDot() {
+		wait.hardWait(3);
 		wait.waitForVisibilityOfElement(threeDot);
-		click(threeDot);
+		jsUtil.clickByJS(threeDot);
 	}
 
 	public void clickOnEditPlaylist() {

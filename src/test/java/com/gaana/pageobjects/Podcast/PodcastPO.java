@@ -27,7 +27,7 @@ public class PodcastPO extends BaseAutomation {
     private By elePodcastPlayTime = By.xpath("//span[@class=\"_a\"]");
     private By btnPausePlayer = By.xpath("//button[@class='play playing']/*[@viewBox='0 0 24 24']");
     private By eleSections = By.xpath("//div[contains(@class,\"caro_container\")]");
-    private By elePodcastName = By.xpath("//h1[@class='title']");
+    private By elePodcastName = By.xpath("//h1[@class='title t_over']");
     private By elePodcastTitleBreadcrumb = By.xpath("//span[@class='_title']");
     private By btnMarkFavPodcast = By.xpath("//button[@title='Follow' and @id ='playVBtn' ]");
     private By btnUnmarkPodcastFav = By.xpath("//button[@title=\"Following\"]");

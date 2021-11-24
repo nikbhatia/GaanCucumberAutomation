@@ -18,9 +18,10 @@ public class SongPO extends BaseAutomation {
     private By threedotpopupelements = By.xpath("//div[contains(@class,'_txt t_over')]//span");
     private By threeDotcss = By.cssSelector("div._c>.icon.menu_ic>svg.threedot_svg");
     private By threedotpopcss = By.cssSelector("div._inner.bottom-pp.three_pp");
-    private By favIcon=By.cssSelector("div._c>button.icon.sm-hide>svg");
+    private By favIcon=By.xpath("(//*[local-name()='svg' and @height='19'])[2]");
     private By markedFavSong=By.xpath("//h2[contains(text(),'${string}')]//ancestor::div[@class='head']//following-sibling::div//img");
-    private By songTitle= By.cssSelector("#detail_info>.info>._a>h1");
+    private By songTitle= By.xpath("//h2[@class=\"title\"]");
+    private By artistTitle = By.xpath("//h1[@class=\"title t_over\"]");
     private By firstArtistLinkInArtistPage= By.cssSelector(".ls_wrap>li:nth-of-type(1)");
     private By artistName=By.cssSelector("#detail_info>.info>._a>h1");
     private By link_language=By.cssSelector(".rt.sm-hide>.lg.mr>svg");
@@ -189,8 +190,14 @@ public class SongPO extends BaseAutomation {
         }
         click(favIcon);
         wait.hardWait(2);
-        songMarkedAsFav=generic.getText(songTitle).trim();
-        System.out.println("songMarkedAsFav:"+songMarkedAsFav);
+        if(driver.getCurrentUrl().contains("artist")){
+            songMarkedAsFav = generic.getText(artistTitle).trim();
+            System.out.println("songMarkedAsFav:" + songMarkedAsFav);
+        }
+        else {
+            songMarkedAsFav = generic.getText(songTitle).trim();
+            System.out.println("songMarkedAsFav:" + songMarkedAsFav);
+        }
     }
 
 
@@ -238,7 +245,7 @@ public class SongPO extends BaseAutomation {
         ArrayList<String> arr= new ArrayList<String>();
         List<WebElement> ls= driver.findElements(threedotpopupelements);
 
-        for(int i=0;i<ls.size();i=i+1)
+        for(int i=0;i<4;i=i+1)
         {
             String s=ls.get(i).getText();
             System.out.println(s.trim());
