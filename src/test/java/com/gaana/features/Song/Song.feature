@@ -7,6 +7,7 @@ Feature: Test scenario for Gaana page
     Then user verifies the elements "Share,Add To Playlist,Add To Queue,Download" on the pop up
 
 
+
   @Gaana
   Scenario: Verify three dot functionality in Album page
     Given user opens the application "Album"
