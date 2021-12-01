@@ -55,7 +55,7 @@ Scenario Outline: Verify the different kind of payment modes on the payment page
   @Gaana @Regression
  Scenario Outline: Verify user is able to buy subscription pack by Paytm Wallet
 
-		Given user opens the application "homePage"
+    Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user clicks on Get Gaana Plus link
     Then user verifies that "subscriptionPage" is displayed
@@ -75,7 +75,7 @@ Scenario Outline: Verify the different kind of payment modes on the payment page
    @Gaana @Regression
  Scenario Outline: Verify user is able to buy subscription pack by Netbanking
 
-		Given user opens the application "homePage"
+     Given user opens the application "homePage"
     Then user logins with "<loginType>"
     Then user clicks on Get Gaana Plus link
     Then user verifies that "subscriptionPage" is displayed
@@ -96,3 +96,20 @@ Scenario Outline: Verify the different kind of payment modes on the payment page
     Examples:
     |loginType   |
   	|NonGaanaPlus|
+
+
+
+  @Gaana @Regression
+  Scenario Outline: Verify auto renew functionality for redeem (marketing) coupon
+
+    Given user opens the application "homePage"
+    Then user logins with "<loginType>"
+    When user opens the application "settingsPage"
+    Then user clicks on redeemcoupon button
+    And  user enter the coupon "icicigaana"
+    Then verifies auto renew with payementMethod "Credit Card/ Debit Card" and cardNumber "4591 5600"
+
+
+    Examples:
+      |loginType   |
+      |NonGaanaPlus|

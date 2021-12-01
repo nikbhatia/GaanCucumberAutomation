@@ -10,6 +10,7 @@ import com.gaana.automation.util.URLBuilder;
 import com.gaana.test.base.BaseAutomation;
 
 import cucumber.api.java.en.Then;
+import org.openqa.selenium.support.ui.Select;
 
 public class PaymentPO extends BaseAutomation {
 
@@ -44,10 +45,44 @@ public class PaymentPO extends BaseAutomation {
 	private By optionsPopularBanks = By.xpath("//span[contains(@class,'s_name')]");
 	private By chkbxPopularBanks = By.xpath("//span[contains(text(),'${bank}')]//preceding-sibling::span");
 	private By ddOtherBanks = By.xpath("//select[contains(@name,'bankcode')]");
+	private By eleRedeemCoupon = By.xpath("//span[text()=\"Redeem Coupon\"]");
+	private By eleCouponTextBox = By.xpath("//input[@id=\"coupon_name\"]");
+	private By eleButtonProceed = By.xpath("//button[@type=\"submit\"]");
+	private By eleCouponSuccessText = By.xpath("(//strong[text()=\"Coupon applied successfully\"])[2]");
+	private By eleProceedButtonAfterCouponApplied = By.xpath("(//button[text()=\"Proceed\"])[2]");
+	private By eleSelectPaymentOption = By.xpath("//select");
+	private By eleProceedButtonPaymentModeSelect =  By.xpath("//button[text()=\"Proceed\"]");
+	private By eleTextBoxCardNumber = By.xpath("//input[@id=\"card_number\"]");
+	private By eleErrorMsg = By.xpath("//div[contains(text() ,\" This card does not support auto\")]");
+	private By eleIframeCardNumber = By.xpath("//iframe[@class=\"card_number_iframe\"]");
 	
 	
 	GenericMethod generic = new GenericMethod();
 
+	
+	public void clickOnRedeemCoupon(){
+		click(eleRedeemCoupon);
+	}
+	
+	public void setRedeemCoupon(String coupon){
+		sendKeys(eleCouponTextBox,coupon);
+		click(eleButtonProceed);
+		wait.waitForVisibilityOfElement(eleCouponSuccessText);
+		click(eleProceedButtonAfterCouponApplied);
+	}
+	
+	public boolean verifyAutoRenew(String paymentMethod, String cardNumber){
+		
+		Select paymentMode = new Select(driver.findElement(eleSelectPaymentOption));
+		paymentMode.selectByVisibleText(paymentMethod);
+		click(eleProceedButtonPaymentModeSelect);
+		wait.waitForVisibilityOfElement(eleTextBoxCardNumber);
+		switchToFrame(eleIframeCardNumber);
+		sendKeys(eleTextBoxCardNumber,cardNumber);
+		return isDisplayed(eleErrorMsg);
+	}
+	
+	
 	public void clickOngetGaanaPlusLink() {
 		generic.click(getGaanaPlusLink);
 		generic.switchToNewWindow();

@@ -39,6 +39,7 @@ public class URLBuilder {
 
         endPoints.put("FavPodcastPage","/myfavoritepodcasts");
         endPoints.put("genrePage","/genre");
+        endPoints.put("settingsPage" ,"/settings");
     }
 
 

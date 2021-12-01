@@ -5,7 +5,10 @@ import static org.testng.Assert.assertTrue;
 import com.gaana.pageobjects.Payment.PaymentPO;
 import com.gaana.test.base.PageObjectWrapper;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.apache.kafka.common.protocol.types.Field;
+import org.testng.Assert;
 
 public class PaymentStepDef {
 	
@@ -98,6 +101,22 @@ public class PaymentStepDef {
 		paymentPO.selectOtherBank(bankName);
 		assertTrue(paymentPO.validateSelectedBank(bankName), bankName+" is not selected successfully");
 	
+	}
+	
+	@Then("user clicks on redeemcoupon button")
+	public void clickOnRedeemCoupon(){
+		paymentPO.clickOnRedeemCoupon();
+	}
+	
+	@And("user enter the coupon {string}")
+	public void setCoupon(String coupon){
+		paymentPO.setRedeemCoupon(coupon);
+	}
+	
+	
+	@Then("verifies auto renew with payementMethod {string} and cardNumber {string}")
+	public void verifyAutoRenew(String paymentMethod, String cardNumber){
+		Assert.assertFalse(paymentPO.verifyAutoRenew(paymentMethod,cardNumber));
 	}
 
 }
