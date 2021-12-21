@@ -14,11 +14,11 @@ public class SongPO extends BaseAutomation {
     GenericMethod generic = new GenericMethod();
     GenericClassMethod genericClass = new GenericClassMethod();
 
-    private By firstTrendingSong = By.xpath("(//section[@class='caro caro_sqr mWrap']/div[@class='caro_container']/ul/li)[1]");
+    private By firstTrendingSong = By.xpath("(//section[contains(@class,'caro caro_sqr mWrap')]/div[@class='caro_container']/ul/li)[1]");
     private By threedotpopupelements = By.xpath("//div[contains(@class,'_txt t_over')]//span");
     private By threeDotcss = By.cssSelector("div._c>.icon.menu_ic>svg.threedot_svg");
     private By threedotpopcss = By.cssSelector("div._inner.bottom-pp.three_pp");
-    private By favIcon=By.xpath("(//*[local-name()='svg' and @height='19'])[2]");
+    private By favIcon=By.xpath("(//button[@title=\"Add to favorites\"])[1]/*");
     private By markedFavSong=By.xpath("//h2[contains(text(),'${string}')]//ancestor::div[@class='head']//following-sibling::div//img");
     private By songTitle= By.xpath("//h2[@class=\"title\"]");
     private By artistTitle = By.xpath("//h1[@class=\"title t_over\"]");
@@ -183,11 +183,13 @@ public class SongPO extends BaseAutomation {
         System.out.println("Fav icon is b4 clicked  "+favClass);
         if(favClass.contains("fav checked"))
         {
+            wait.waitForElementToBeClickable(favIcon);
             click(favIcon);
             wait.hardWait(3);
             System.out.println("Fav icon is after clicked  "+driver.findElement(favIcon).getAttribute("class").trim());
 
         }
+        wait.waitForElementToBeClickable(favIcon);
         click(favIcon);
         wait.hardWait(2);
         if(driver.getCurrentUrl().contains("artist")){
@@ -215,6 +217,7 @@ public class SongPO extends BaseAutomation {
             case "Favourite Albums":
             case "Favourite Songs":
             case "Favourite Artists":
+                
                 if(songMarkedAsFav.contains(ll.get(0).getAttribute("title").trim()))
                 {
                     song=true;

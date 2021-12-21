@@ -71,6 +71,7 @@ public class PlaylistStepDef extends BaseAutomation{
     public void user_verifies_that_song_is_added_successfully_in_playlist() throws InterruptedException {
         playlistPO.clickOnCreatedPlaylist();
     	assertTrue(playlistPO.validatePlaylistCreatedHeading(), "Playlist "+PlaylistPO.playListName+" heading is incorrect.");
+    	pageRefresh();
     	assertTrue(playlistPO.validatePlaylistCreatedTrackCount("01 Track"), "Track Count is incorrect");
     	assertTrue(playlistPO.validateTrendingSongAddedToPlaylist(), "Added Song is not displayed in the playlist.");
     }

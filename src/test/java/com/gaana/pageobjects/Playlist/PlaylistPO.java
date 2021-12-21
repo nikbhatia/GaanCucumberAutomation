@@ -126,6 +126,7 @@ public class PlaylistPO extends BaseAutomation {
 		playListName = name + generic.getTimeStamp();
 		generic.EnterText(editPlaylistTextbox, playListName);
 	}
+	
 
 	public void clickOnSaveButton() {
 		wait.hardWait(3);
